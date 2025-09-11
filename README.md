@@ -15,6 +15,17 @@ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 (虽然使用 $\mathrm{\LaTeX{}}$ 会带来另外一些细节问题)
 本模板不保证可靠性.
 
+## 2023/02/20: Add support for auto-compilation based on GitHub Actions
+
+**使用方法:**
+
+* 把 `template.tex` 编辑为想要的内容 **（不要改文件名）**
+* 执行 `git commit -am <commit-message>` 和 `git push`
+* 等待编译（约 2 分钟），然后前往 GitHub 仓库页面，选择 Actions 选项卡，在 workflow runs 列表中点击对应于最新一次 push 的条目
+* 进入新的页面后，在 Artifacts 中点击 `document` 下载文件并解压
+
+Reference: https://github.com/xu-cheng/latex-action
+
 **重要提示**: 请使用 `xelatex` 编译.
 
 - [下载](#下载)
