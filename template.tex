@@ -30,7 +30,7 @@
 
 \begin{document}
 
-\title{约瑟夫森效应实验} % 切合报告内容, 简短明确, 可以不同于讲义
+\title{非线性热对流斑图} % 切合报告内容, 简短明确, 可以不同于讲义
 \author{郑熔} % 这里 \emailphone 一定要紧跟在 \author 后方
 \emailphone{2300011359@stu.pku.edu.cn}{(86)19805861588}
 % 如果改用 \email 则仅需要邮箱参数
@@ -47,7 +47,7 @@
   该状态被称为耗散结构.
   瑞利贝纳德对流实验是耗散结构典型实验之一.
   本实验用阴影法观察厚度分别为2 mm 和4 mm 的水层的热对流斑图. 通过改变水层的温度差, 可以观察到斑图随温度差变化的形状变化, 并且记录得到临界点的温度差. 对于2 mm 的水层, 
-  临界温度差大约是5.5 \circ , 对于4 mm 的水层, 临界温度差大约是2.8 \circ. 通过对实验现象的分析, 可以加深对耗散结构、非对称性破缺等概念的理解.
+  临界温度差大约是5.5 \circ C, 对于4 mm 的水层, 临界温度差大约是2.8 \circ C. 通过对实验现象的分析, 可以加深对耗散结构、非线性对流斑图等概念的理解.
  
   % \note{本文档为对 \href{https://github.com/CastleStar14654/PKUMpLtX}{\pkg*{PKUMpLtX}} 的使用示例, 灰色部分为额外针对 \LaTeX{} 模板使用的说明或是一些能提升输出效果的琐碎细节.
     % 也请注意查看源文档 \file{template.tex} 中的注释.}
@@ -64,11 +64,11 @@
   如果将系统拉到离平衡态更远的地方, 系统可能出现更多新的稳定状态. 
   而这种稳定结构被称为耗散结构.
   \par
-  以瑞利贝纳德问题为例\autoref{ruilibeinadeduiliu}, 若从动力学角度出发, 通过解 Navier-Stokes 方程, 流体连续性方程, 热传导方程, 并且固定边条件, 可以解得方程组的定常解. 为了了解该定态解的稳定性, 使用先行稳定性分析, 经过一系列计算,
+  以瑞利贝纳德问题为例\autoref{ruilibeinadeduiliu}, 若从动力学角度出发, 通过解 Navier-Stokes 方程, 流体连续性方程, 热传导方程, 并且固定边条件, 可以解得方程组的定常解. 为了了解该定态解的稳定性, 使用线性稳定性分析, 经过一系列计算,
   可以得出临界参量
   $R_c = 1707.76, q_c = 3.117$.
   且边条件$Ra\equiv\frac{g\alpha d^3\delta T}{\nu\kappa}$.
-  也就是说当对流水层上下温差使得瑞利数$Ra < R_c$时, 系统出现的扰动会随时间消亡, 定态解会保持稳定; 而反之, 则扰动噪声会逐渐变大, 利用多尺度分析并考虑系统对称性, 可以理解实验中的班图分岔行为.
+  也就是说当对流水层上下温差使得瑞利数$Ra < R_c$时, 系统出现的扰动会随时间消亡, 定态解会保持稳定; 而反之, 则扰动噪声会逐渐变大, 利用多尺度分析并考虑系统对称性, 可以理解实验中的斑图分岔行为.
   若从热力学角度出发, 由于温度梯度的存在, 且系统为开放系统, 则必有热量的流入和流出. 随着热量的流入和流出, 系统的熵会不断变化. 当熵增小于熵减时, 系统会逐渐变为一个有序结构.
   当维持其有序结构时, 系统会在产生最小熵和最大耗散之间达到一种动态平衡 \cite{jindaiwulishiyan}.
   \par
@@ -117,204 +117,103 @@
 
 
   \subsection{2 mm 水层的热对流斑图}
-  \begin{figure}[h]
-      
+  \begin{figure}[htbp]      
+    \caption{2 mm 水层的热对流斑图}
     \begin{minipage}{0.32\linewidth}
       \vspace{3pt}
       \centerline{\includegraphics[width=\textwidth]{fig/2mm 0.7A.png}}
-      \centerline{Image}
+      \centerline{I = 0.2 A, $\Delta T = 4.2^\circ C$}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/2mm 1.0A.png}}
+      \centerline{I = 1.0 A, $\Delta T = 6.7^\circ C$}
     \end{minipage}
     \begin{minipage}{0.32\linewidth}
       \vspace{3pt}
       \centerline{\includegraphics[width=\textwidth]{fig/2mm 0.8A.png}}
+      \centerline{I = 0.8 A, $\Delta T = 5.5^\circ C$}
       \vspace{3pt}
-  
-      \centerline{Image}
+      \centerline{\includegraphics[width=\textwidth]{fig/2mm 1.2A.png}}
+      \centerline{I = 1.2 A, $\Delta T = 8.3^\circ C$}
     \end{minipage}
+    \label{fig:2mm}
   \end{figure}
+  不同电流下的热对流斑图如\autoref{fig:2mm}所示.
+  在电流为 0 A 时, 水层上层温度为28.0 \circ C, 下层温度为29.0 \circ C, 这可能是温控仪的接触电阻差异所导致的. 此时图像亮度均匀, 没有出现斑图.
+  逐渐增加电流, 水层下表面的温度逐渐增大, 与此同时水层上表面的温度也会增加, 但上表面的增幅小于下表面的增幅. 因此上下表面的温差会逐渐增大.
+  \par
+  随着电流的增大, 当电流为 0.8 A 时, 上下表面温差达到 5.5 \circ C, 此时可以观察到水层内出现了热对流斑图, 斑图为同心圆状, 系统内部变为有序结构. 该温差即为临界温差.
+  电流继续增大, 斑图越来越清晰, 亮线变细, 暗条纹变粗. 这是因为随着温度差的增大, 热上升的水流变多, 而暗条纹对应的是热水. 
+  且在温度差达到一定程度时, 斑图结构会发生明显变化, 同心圆结构被破坏, 同心圆的最外围出现鳞片状条纹. 
 
-  实验得到的双晶约瑟夫森结超导微桥的$V_J-V_T$曲线如\autoref{fig:RT}所示. 其中, y轴分度值为0.1mV/cm, x轴显示的分度值为10mV/cm.
+  \subsection{4 mm 水层的热对流斑图}
+  \begin{figure}[htbp]      
+    \caption{4 mm 水层的热对流斑图}
+    \begin{minipage}{0.32\linewidth}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 0.2A.png}}
+      \centerline{I = 0.2 A, $\Delta T = 0.8^\circ C$}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 1.2A.png}}
+      \centerline{I = 1.2 A, $\Delta T = 7.7^\circ C$}
+    \end{minipage}
+    \begin{minipage}{0.32\linewidth}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 0.6A.png}}
+      \centerline{I = 0.6 A, $\Delta T = 2.8^\circ C$}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 1.5A.png}}
+      \centerline{I = 1.5 A, $\Delta T = 11.1^\circ C$}
+    \end{minipage}
+    \begin{minipage}{0.32\linewidth}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 0.9A.png}}
+      \centerline{I = 0.9 A, $\Delta T = 4.8^\circ C$}
+      \vspace{3pt}
+      \centerline{\includegraphics[width=\textwidth]{fig/4mm 1.8A.png}}
+      \centerline{I = 1.8 A, $\Delta T = 14.3^\circ C$}
+    \end{minipage}
+    \label{fig:4mm}
+  \end{figure}
+  不同电流下的热对流斑图如\autoref{fig:4mm}所示.
+  在电流为 0 A 时, 水层上层温度为31.4 \circ C, 下层温度为32.2 \circ C, 这可能是温控仪的接触电阻差异所导致的. 此时图像亮度均匀, 没有出现斑图.
+  随着电流的增大, 当电流为 0.6 A 时, 上下表面温差达到 2.8 \circ C, 此时可以观察到水层内出现了热对流斑图, 斑图为较模糊的同心圆状, 该温差即为临界温差.
+  电流继续增大, 亮线和暗线变清晰.
+  且在电流增大的过程中, 可以明显看到条纹的不断被吞的过程. 如\autoref{fig:4mm_0.9_1}所示, 该图为电流为 0.9 A 时, 还未达到稳定状态时的斑图, 
+  可以图中央有一亮色条纹正在被吞掉. 这是由于圆形边条件下, 边缘的动力学过程较为确定, 而随着温度差的增大, 对流逐渐增强, 对流原包逐渐向圆形扩张, 原胞的数量逐渐减少,
+  从而呈现中心条纹被吞的现象.
+
   \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.85\linewidth]{fig/3.jpg}
-    \caption{双晶约瑟夫森结超导微桥的$R-T$曲线}
-    \label{fig:RT}
+    \includegraphics[width=0.85\linewidth]{fig/4mm 0.9_1.png}
+    \caption{电流为 0.9 A 时, 还未达到稳定状态时的斑图}
+    \label{fig:4mm_0.9_1}
   \end{figure}
 
-  测量得初始测量点的横坐标 (距离) 为17.16cm, 超导转变点的横坐标 (距离) 为4.22cm, 最终不变点的横坐标 (距离) 为3.35cm.
-  室温下用万用表测量得到的铂电阻大小为109.6$\Omega$, 由此可查表并利用其线性计算得到此时的温度为297.715K.
-  已知液氮温度为77K. 根据铂电阻阻值和温度的线性关系, 可以计算得到转折点的温度约为90.9K. 
+  \par
+  当电流达到 1.2 A 时, 温差达到 7.7^\circ C, 斑图的规则性被打破, 同心圆形状发生畸变. 呈现出一些分岔结构. 
+  当电流达到 1.5 A 时, 温差达到 11.1^\circ C, 斑图呈现出类似分形的结构. 这是因为分形的结构有助于提升系统的对流效率, 使得系统能够更好地将热量从下表面传递到上表面, 从而提升系统的稳定性.
+  当电流达到 1.8 A 时, 温差达到 14.3^\circ C, 斑图变得更加复杂, 几乎丧失了稳定结构特征, 此时水层内部呈现复杂的湍流.
 
   \par
-  可以发现, 在液氮温度下, 约瑟夫森结两端的电压并不为0, 而是一恒定的负值. 这可能是由于实验装置所处的温度跨度较大而产生了温差势能, 或是诸如电压测量系统零点漂移等其他实验装置本身原因造成.
-
-
-  \subsection{在液氮沸点下测量双晶约瑟夫森结的$V-I$曲线}
-  实验得到的液氮沸点下双晶约瑟夫森结的$V-I$曲线如\autoref{fig:VI}所示. 其中, y轴分度值为10$\mu V/cm$, x轴显示的分度值为5mV/cm.
-  采用外加电压源重新标定x轴分度, 得到x轴分度为7mV/cm.
-   \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.85\linewidth]{fig/4.jpg}
-    \caption{双晶约瑟夫森结无微波辐照下的$V-I$曲线}
-    \label{fig:VI}
-  \end{figure}
-
-  测量得到两个转变点之间距离为14.31cm, 由此可以计算得到约瑟夫森结的临界电流为$I_c=\frac{14.31\times 7}{2\times 50}=1.0017mA$.
-
-  \par
-  当电流大小大于约瑟夫森临界电流时, 约瑟夫森结两端会出现电压差, 这是由于样品内电子发生隧穿导致的.
-
-  \subsection{在液氮沸点下施加微波辐照, 测量双晶约瑟夫森结的$V-I$曲线}
-  实验得到的液氮沸点下双晶约瑟夫森结在微波辐照下的$V-I$曲线如\autoref{fig:VI_mw}所示. 其中, y轴分度值为10$\mu V/cm$, x轴显示的分度值为5mV/cm.
-  采用外加电压源重新标定x轴分度, 得到x轴分度为7mV/cm.
-  从图中可以观察到较为明显的夏皮罗台阶.
-  测量得到各个台阶的高度如表\autoref{tab:step}所示.
-  \begin{figure}[htbp]
-      \centering
-      \includegraphics[width=0.85\linewidth]{fig/5.jpg}
-      \caption{双晶约瑟夫森结无微波辐照下的$V-I$曲线}
-      \label{fig:VI_mw}
-    \end{figure}
-  
-  \begin{table}[htbp]
-    \caption{夏皮罗台阶高度与序数的关系}
-    \label{tab:step}
-    \begin{ruledtabular}% ruledtabular 环境自动生成首尾双横线, 并调整宽度至占满全行
-      \begin{tabular}{c|c|c|c|c|c|c|c}
-        % d{a.b} 能使该列中的数据按小数点对齐, 前方留 a 个字符, 后方留 b 个字符
-        % 已将 multicolumn 简写为 mc
-        n  &  -3  &  -2  &  -1  &  0  &  1  &  2  &  3   \\
-        \colrule% 中间横线
-        y/cm     & -2.20 & 1.48 & 0.72 & 0 & 0.71 & 1.50 & 2.30 \\
-        V/\mu V   & -22.0 & -14.8 & -7.2 & 0 & 7.1 & 15.0 & 23.0\\
-      \end{tabular}
-    \end{ruledtabular}
-  \end{table}
-  使用Origin对其作线性拟合, 得到如\autoref{fig:fit}直线, 拟合得到的斜率$k = 7.46017\mu V$. 
-  \begin{figure}
-      \centering
-      \includegraphics[width=0.85\linewidth]{fig/6.png}
-      \caption{夏皮罗台阶高度与序数的关系拟合}
-      \label{fig:fit}
-  \end{figure}
-  已知公式$ V = n\frac{h\nu}{2e}$, 由此得到$k= \frac{h\nu}{2e} $, 从而可以计算得到微波频率$\nu = \frac{2ek}{h} = 3.608GHz$.
-  \par
-  但是仪器实际显示的微波频率为9.129GHZ, 与理论计算的相差较大. 这可能是由以下几点原因造成的:
+  根据理论计算, $Ra\equiv\frac{g\alpha d^3\delta T}{\nu\kappa}$, 可知$\Delta T \propto \frac{1}{d^3}$, 因此当水层厚度增大一倍时, 临界温差应成为原来的1/8.
+  但在本实验中, 2 mm 水层的临界温差为 5.5 \circ C, 4 mm 水层的临界温差为 2.8 \circ C, 相差约为1/2. 可能的原因如下:
   \begin{itemize}
-    \item 实验中记录的y轴分度值错误, 实际打到的分度值为$25\mu V/cm$而不是记录的$10\mu V/cm$. 推测该原因可能性较大, 因为实验中观察到y轴旋钮的指示线恰好位于$10\mu V/cm$和$25\mu V/cm$之间, 可能读数有偏差.
-    \item 实验使用的$X-Y$记录仪除了x轴分度值损坏外, y轴分度值也可能存在误差.
-    \item 在测量夏皮罗台阶的高度时, 误把二级台阶认为是一级台阶, 导致测量得到的台阶高度较小. 但是根据\autoref{fig:VI_mw}所示, 台阶较为明显, 误记的可能较小. 
+    \item 实验中水层侧壁外界有热交换, 而理论公式的前提假设是无限大的平板.
+    \item 实验中CCD的分辨率有限, 恰好出现热对流斑图的时刻通常无法被准确捕捉
+    \item 温控仪的测量精度有限, 测量同时受到接触电阻的影响.
   \end{itemize}
-  如果根据第一点原因, 则重新计算得到的微波频率为9.02GHz, 与仪器显示的9.129GHz较为接近, 误差约为1.2\%. 
-  \par
-  由此可以验证约瑟夫森效应理论的正确性.
-  \par
-  如果使用不含双晶结的超导微桥样品进行试验, 理论上记录得到的无微波辐照和有微波辐照的$V-I$曲线都是一条直线, 即不存在约瑟夫森效应.
-  这是因为对于$YBa_2Cu_3O_{7-x}$, 其相干长度极小, 无双晶结的样品很难在样品间形成弱耦合, 导致无法产生约瑟夫森效应. 
-  而双晶衬底的约瑟夫森结是由两块平行于衬底表面晶向不同的的$YBa_2Cu_3O_{7-x}$粘合形成, 可以使得两块超导体间形成弱连接, 产生约瑟夫森效应.
 
-
-
-% 此部分是实验报告的主体, 应占报告篇幅的一半以上.
-% \note{依自己意愿, 结果与分析部分可以分多个小节, 甚至可以将实验结果和对结果的分析讨论拆分为两节.}
-
-% 实验结果应尽量以图表的形式给出. 每一个图表都应该是完整的, 即阅读图表时可以不必依赖正文.
-% 以图表为中心叙述实验结果和讨论.
-
-% \subsection{表格}\label{ssec:table}
-% \subsubsection{表格}\label{sssec:table}
-
-
-% 表是被一系列横线隔开的有序排列的数据, 报告格式要求最上和最下两条横线为双横线.
-% \note{此双横线格式可以通过 \env{ruledtabular} 环境和 \cs{colrule} 命令实现.}
-% 例表为\autoref{tab:table_eg}.
-
-% \begin{table}
-%   \caption{表格示例%
-%     \footnote{表格标题要简明扼要; 注意使用 \pkg[revtex]{revtex4-2} 提供的 \env{ruledtabular} 环境生成首尾双横线的表格.
-%       表格中的脚注会自动加在表尾.
-%       为方便, 提供了 \cs{mc} 作为 \cs{multicolumn} 的简写.
-%       \href{https://www.tablesgenerator.com}{Tables Generator 网站}可以方便地生成 \LaTeX 表格.}}
-%   \label{tab:table_eg}
-%   \begin{ruledtabular}% ruledtabular 环境自动生成首尾双横线, 并调整宽度至占满全行
-%     \begin{tabular}{cd{4.2}lr}
-%       % d{a.b} 能使该列中的数据按小数点对齐, 前方留 a 个字符, 后方留 b 个字符
-%       % 已将 multicolumn 简写为 mc
-%       居中    & \mc{1}{c}{数值 %
-%         \footnote{``数值'' 列使用了 \code{d} 列格式来按小数点位置对齐.
-%         记得将 \code{d} 列的列标题单独设为居中.
-%         \pkg{siunitx} 提供了更为复杂的小数点对齐功能, 请参考其文档.}
-%       }     & 靠左           & 靠右 \\
-%       \colrule% 中间横线
-%       a     & 0.12         & a     & a \\
-%       bbb   & -100         & bbb   & bbb \\
-%       ccccc & 50.8         & ccccc & ccccc
-%     \end{tabular}
-%   \end{ruledtabular}
-% \end{table}
-
-% 从\autoref{tab:table_eg} 可以看出, 对表中各项的注释应作为表的一部分放在表后, 而不是页脚或文尾.
-% \note{在表格中使用 \cs{footnote} 命令时 \LaTeX 会自动将注释放在表尾.
-%   但正文中的注释按照 AIP 的要求 (以及 \pkg[revtex]{revtex4-2} 的实现) 是会和各引用项共同编号并作为参考文献列表的一部分的.
-%   因此, 只要你在正文使用了 \cs{footnote}, 即使你没有引用任何文献 (这一般不太可能), 也需要用 B\textsc{ib}\TeX 处理.
-%   这里是一个尾注的例子 \footnote{这里是一个尾注的例子}.}
-
-% 当原始数据和处理过的数据常需要出现在同一表中时, 用软件来处理会非常方便.
-% 但出现在实验报告中的表应具有上面给出的例子的格式.
-
-% \subsection{数据图}
-
-% \textbf{每个图应尽量让读者不看正文就能基本理解图的含意.}
-% 应包含: 图名、轴名、轴、刻度、标尺、数据点、曲线、图例、标注和图注等部分.
-% 最常用的作图软件有 Origin 或 MATLAB.
-% 学习使用基本的数据处理和作图工具软件也是课程的基本内容.
-% 课程也鼓励大家使用 Python 语言编程作图.
-% 逐点测量得到的函数关系要同时用表格和图给出.
-% \note{数据点过多可以将数据放到附录.
-%   这里 ``逐点测量得到的函数关系'' 还是要自己把握一下, 像那种几千个数据点的能谱当然就没必要放原始数据表了.}
-% \textbf{需要作比较的多条曲线要画在同一图上.}
-% 为避免读者在图表和正文间反复跳跃阅读, 正文叙述应紧邻图表, 正文中也要对图表作必要的说明.
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[width=0.8\textwidth]{fig/figsample.pdf}
-%   \caption{这是数据图的例子.
-%     \note{在图的 \cs{caption} 中应简要说明图中表达的内容, 并对各种符号、线型、颜色的意义做出说明.
-%       如果有多格数据图, 应清晰地分别做出解释说明.
-%       图中的关键性文字 (比如轴名和图例) 的大小最好能和说明文字中的文字大小相当.
-%       关于坐标轴名和单位的标法, 可以参看\href{https://journals.aps.org/authors/axis-labels-and-scales-on-graphs-h18}{美国物理学会的说明}.
-%       本图是用脚本 \file{figgen.py} 生成的}}
-%   \label{fig:data}
-% \end{figure}
-
-% \autoref{fig:data} 是一张例图.
-
-% \subsection{对分析的要求}
-
-% 对于预料之外的实验结果, 必须首先小心证明其可靠性.
-% 读者只有在相信你的实验结果时才愿意花时间看你的分析.
-
-% \textbf{必须用文字归纳整理出正式的实验结果或结论.}
-% 可信的实验结果是课程报告最重要的内容.
-% 作为一个实验物理工作者, 分析解释出错并不丢脸, 实验结果不被采信则是致命的.
-% 教学实验的结论往往是预先知道的.
-% 所以, 教师更关心的是你的说理过程.
-% 一般说来, 单由课内实验的结果不足以能得到明确的结论.
-% 此时, 你可以引用他人的研究结果来帮助帮助自己的论证, 但必须注明出处.
-% 确实不能得到明确结论时, 可以给出几种可能结论并指出可以再做哪些实验来帮助作进一步的判断.
-% 总之, 分析讨论部分要做到: 论据要valid, 论证要reasonable, 结论要convincing.
 
 \section{结论}
-本实验使用双晶约瑟夫森结样品, 测量了其电阻与温度的关系曲线, 得到了其超导转变温度. 然后, 在液氮温度下, 测量得到了其在无微波辐照下的$V-I$曲线,
-并得到了约瑟夫森临界电流. 最后, 给样品加以微波辐照, 测量得到样品的$V-I$曲线, 观察得到了较为明显的夏皮罗台阶, 并由此计算得到了微波频率, 验证了约瑟夫森效应理论的正确性.
-
-% 首先要给出实验结果, 然后再给出由实验结果分析得到的结果和结论．
-% 此部分给出的内容要比摘要中的全面, 用词要更准确．
+  本实验利用阴影法观察了厚度分别为2 mm 和4 mm 的水层的热对流斑图. 通过改变电流从而改变水层的温度差, 观察到斑图随温度差变化的形状变化, 并且记录得到临界点的温度差. 
+  对于2 mm 的水层, 随着温差增大, 斑图由无序变为有序同心圆, 再逐渐出现破缺, 临界温度差大约是5.5 \circ C.
+  对于4 mm 的水层, 随着温差增大, 斑图由无序变为有序同心圆, 再逐渐分裂形成分形结构, 最后变为湍流状态, 临界温度差大约是2.8 \circ C.
+  通过对实验现象的分析, 可以加深对耗散结构、非线性对流斑图等概念的理解.
 
 \begin{acknowledgments}
-  感谢王越老师的耐心指导和帮助.
+  感谢周路群老师的耐心指导和帮助.
   \par
-  感谢搭档王天天同学的协助.
+  感谢搭档吴浅溪同学的协助.
   % 感谢对实验和报告有具体重要帮助的, 又没被列为作者的人.
   % \note{撰写致谢时请使用 \env{acknowledgments} 环境.}
 \end{acknowledgments}
@@ -325,126 +224,24 @@
 \clearpage % 附录前另起一页
 \appendix % 附录开始
 \section{思考题}\label{app:exercise}
-\subsection{在进行$R-T$曲线测量时如何选定坐标记录原点和$R-T$记录仪的分度值以得到合适的测量曲线？}
-坐标原点尽可能选在左下角的格点上. 在样品温度在室温时, 将$X-Y$记录仪的x轴和y轴分别调到Measure档, 调整x轴和y轴的分度值, 使得笔的位置尽可能在纸的右上角, 但是又不超出仪器记录范围.
-这样做的目的是让记录得到的图像尽可能铺满全纸, 原点在格点方便测量距离.
-\subsection{通过测量$V-I$曲线来考察直流约瑟夫森效应时,$X-Y$记录仪轴 (结电压) 的分度值在开始时应该选定在什么挡位？是应该大还是应该小? }
-y轴分度值取值应该尽可能小, x轴分度值应该要使得横向的图像不能超出纸的范围. 
-\subsection{随着微波输出功率的变化，双晶约瑟夫森结的伏安特性 ($V-I$) 曲线有什么变化？产生的原因是什么？}
-当$ V = n\frac{h\nu}{2e}$时, $\bar{j(t)} = (-1)^nj_cJ_n(\frac{2eu}{h\nu})\sin{\phi_0}\propto J_n(\frac{2eu}{h\nu})$.
-\par
-根据\autoref{fig:Bessel}所示, 随着u的增大, $J_0$的大小先减小后增大, $J_n (n\ge 1)$的大小先增大后减小. 即当功率逐渐增大时, 0级台阶的长度先减小后增大, 其余级别台阶的长度先增大后减小.
-实验中也确实观察到了类似现象.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.85\linewidth]{fig/7.png}
-    \caption{自变量为实数时的Bessel函数 (摘自\cite{shulifangfa})}
-    \label{fig:Bessel}
-\end{figure}
+\subsection{随着温差的升高，可以看到黑白结构的出现，黑白的区域如何对应水层的流动情况?}
+黑色区域对应热水, 白色区域对应冷水. 这是因为冷水密度大, 折射率高, 光线穿过其中时汇聚, 在拍摄的照片上会形成亮斑; 热水密度小, 折射率低, 光线穿过其中时发散, 在拍摄的照片上会形成暗斑.
+\subsection{斑图出现的临界点如何确定? 如何根据所观察的现象确定临界点?}
+根据经验合理选择电流数值, 再临界点附近适当减小电流步长, 并比对各个记录得到照片后, 选择最先出现斑图的照片对应的温差作为临界温差.
+此外还需要注意, 每次改变电流后需要停留足够长的时间, 待系统充分稳定后再拍照.
+\subsection{当水层换成 4mm 时，考虑临界点会如何改变?}
+根据理论计算, $Ra\equiv\frac{g\alpha d^3\delta T}{\nu\kappa}$, 可知$\Delta T \propto \frac{1}{d^3}$, 因此当水层厚度增大一倍时, 临界温差应成为原来的1/8.
+但在实际实验中, 2 mm 水层的临界温差与 4 mm 水层的临界温差比值小于 8 . 可能的原因如下有
+实验中水层侧壁外界有热交换, 而理论公式的前提假设是无限大的平板; 
+实验中CCD的分辨率有限, 恰好出现热对流斑图的时刻通常无法被准确捕捉;
+温控仪的测量精度有限, 测量同时受到接触电阻的影响.
 
-\subsection{双晶结超导微桥与不含有双晶结的超导微桥的测量结果有什么差异? 这些差异为什么可从一个侧面证实约瑟夫森效应的观测? }
-双晶结超导微桥在没有微波辐照时, 当电流超过约瑟夫森临界电流时, 电压不为0; 在有微波辐照时, 会出现夏皮罗台阶. 而不含有双晶结的超导微桥的电压在测量范围内始终是0. 
-得到的约瑟夫森临界电流大小远小于超导临界电流, 可以从侧面证实
-约瑟夫森效应观测.
-夏皮罗台阶的观测也可以反映交流约瑟夫森效应.
+\subsection{如何确定斑图的空间特征尺度?}
+对于常见的热对流斑图, 临界无量纲波数$q_c = \frac{k_c}/{h}$, h为层厚. 而$\lambda = \frac{2\pi}/{k_c}$, 因此$\lambda = \frac{2\pi h}{q_c}$.
+已知$q_c \approx 3.117$, 则$\lambda \approx 2.016 h$.
+\subsection{斑图的空间特征尺度与对流水层厚度的关系如何?}
+根据上题, $\lambda \approx 2.016 h$. 即斑图的空间特征尺度与对流水层厚度成正比, 且约为其两倍.
 
 
-\subsection{为什么说超导是宏观量子现象？通过此实验, 谈谈你对这个问题的理解. }
-约瑟夫森效应原理是库珀对的隧穿效应, 这属于量子现象. 但是它可以通过宏观的电流、电压观测得到. 所以是宏观量子现象.
-
-\subsection{约瑟夫森效应有哪些应用 (你了解或设想的), 这些应用的基本原理是什么? }
-约瑟夫森效应有诸多应用, 比如绝对电压基准、超导量子比特等. 其中, 绝对电压基准原理是微波感应台阶电压和频率的一一对应关系, 而频率可以被原子钟等精确测量, 因此可以得到基准电压.
-超导量子比特的基本原理是约瑟夫森结可等效为一个 “超导量子干涉器件” (SQUID) , 其核心是 “电荷 - 磁通” 的量子化特性. 结的超导电流状态 (如电流方向、大小) 对应量子态的不同能级，可通过外部磁场或电压调控这些量子态，实现量子比特的 “0” 和 “1” 状态。
-
-
-% \section{近代物理实验报告写作要求}
-
-% 物理实验的结果最终需要以论文或报告的形式向同行或公众报道.
-% 外界也主要基于这些论文或报告来评价一个实验物理工作者.
-% 所以, 课程实验报告的撰写是北大 ``近代物理实验'' 课的一个重要内容和主要的评分依据.
-
-% 北大近代物理实验课要求按研究论文的形式来撰写课程实验报告.
-% 和任何期刊一样, 近代物理实验课对学生提交的课程实验报告也有内容和格式上的要求.
-% 学生应依照课程提供的课程实验报告模板来撰写自己的实验报告.
-
-% 课程提供的课程实验报告模板综合了 American Institute of Physics (AIP) 期刊和中国《物理学报》对稿件格式的要求.
-
-% 本实验报告模板各部分的文字给出了相应节写作时应注意的问题.
-
-% \subsection*{报告写作的一般事项}
-
-% \begin{enumerate}
-%   \item 课程实验报告应假定读者既不是已知全部实验细节的指导教师, 也不是缺少专业知识的公众, 而是同领域的实验研究者, 或审稿人.
-%         不能要求读者要在读过课程讲义后才能读懂课程实验报告.
-%   \item 文本和物理量单位用正体, 物理变量符号用斜体, 矢量矩阵符号用黑斜体.
-%         \note{(\pkg{physics} 宏包提供了大量的方便的物理中常用符号的排版工具, 请参考其文档使用)}
-%   \item 使用国际标准的缩略词, 符号和法定计量单位时应全文一致, 正文中的缩略
-%         词在\textbf{首次出现时写出全称}, 后附缩略词, 并用括号括起; 之后直接用缩略词, 不
-%         再写全称, 如 American Institute of Physics (AIP).
-%   \item 全文标点符号除 ``顿号'' 外, 其他用英文半角标点符号.
-%         \note{(推荐的格式中, 英文单词和数字应与汉字之间插入一个空格;
-%           半角标点符号应如英文一般, 在逗号, 句号, 分号等后方插入一个空格;
-%           在引号, 括号外侧各插入一个空格;
-%           连续出现的标点符号之间的多余空格则应删除.
-%           但是, \pkg{xeCJK} 宏包基本上自动为你在最终的 PDF 文稿中完成了这些事情.
-%           此外, 如果你觉得半角符号配中文太丑, 请参见 \file{README.md} 中介绍的标点选项)}
-%   \item 公式、图和表要分别用阿拉伯数字编列序号. \note{(这点 \LaTeX 可以为你代劳)}
-%         公式和图表要达到可发表的质量.
-%   \item 凡不是自己独立思考得到的内容都应该引参考文献.
-%         不能大段引用同一参考文献.
-%         对复杂问题, 应该优先考虑引用参考文献得到结果.
-%         对简单一些的问题才鼓励独立思考.
-%         只能引用正式出版物, 不能引用他人实验报告.
-%   \item 模板中的未尽事项可以参考 AIP Style Manual 4th-edition (可从课程网站下载).
-%         \note{(也可参考 \pkg[revtex]{revtex4-2} 的文档)}
-%   \item 较长的推导和说明可以作为附件提交, 不占用报告篇幅.
-%   \item 思考题不是报告的组成部分.
-%         应另起一页附在报告的最后. \note{(比如作为附录)}
-% \end{enumerate}
-
-% \section{对 \LaTeX{} 中标点输入的额外说明}
-% \LaTeX 中对 dash 有所区分,
-% \begin{center}
-%   \begin{tabular}{c@{\quad}c@{\ $\rightarrow$\ }c}
-%     连字符 hyphen    & \verb|co-operate|     & co-operate \\
-%     连接号 en-dash   & \verb|14--19|         & 14--19 \\
-%     英文破折号 em-dash & \verb|Yes---or no?| & Yes---or no? \\
-%     减号            & \verb|$-1$|           & $-1$ \\
-%   \end{tabular}
-% \end{center}
-% 中文破折号 (——) 就按一般习惯的用输入法输入即可.
-% \note{其实中文破折号就是两个连着的 em-dash, 但两种输入方式使他们输出字体不同.}
-
-% \LaTeX 中半角引号使用如下映射进行输入.
-% 左引号的符号为 \textsf{Esc} 键下方的锐音符.
-% \begin{center}
-%   \begin{tabular}{c@{\quad}c@{\ $\rightarrow$\ }c@{\quad}c@{\ $\rightarrow$\ }c}
-%     单引号      & \verb|`|     & `     & \verb|'|     & ' \\
-%     双引号      & \verb|``|    & ``    & \verb|''|    & '' \\
-%     美式连续嵌套引号 & \verb|```|   & ```   & \verb|'{}''| & '{}'' \\
-%     英式连续嵌套引号 & \verb|`{}``| & `{}`` & \verb|'''|   & ''' \\
-%   \end{tabular}
-% \end{center}
-% 注意其中 \code{\{\}} 起到的分组作用.
-
-% 此外, 如果想使用全角符号同时想使用实心点格式的句号, 可以使用 \code{quanjiao} 选项.
-% 源文档中的 ``。'' 会被自动替换成 ``．''.
-% 这时, 也就可以风格统一地直接使用中文输入法给出的引号 ``“”‘’'' 而不用管前面提到的映射了.
-% 具体请参见 \file{README.md} 中介绍的标点选项.
-
-% \note{其实“和``以及”和''分别是同一个 Unicode 字符, 只是被分配了不同的字体.}
-
-% \section{DIY 字体效果测试}
-
-% \newcommand{\testword}{报告}
-% \newcommand{\andbold}{\testword{}\textbf{\testword{}}}
-% \newcommand{\testline}{\testword{}\emph{\andbold{}}\andbold{}}
-
-% 下面分别展示衬线, 无衬线和等宽中文字体效果, 便于检查基线高度等问题.
-% \begin{center}
-%   \textrm{\testline}\\
-%   \textsf{\testline}\\
-%   \texttt{\testline}
-% \end{center}
 
 \end{document}
