@@ -25,14 +25,14 @@
 ### Added
 
 1. 添加了对 `physics2` 宏包的广告 (by @AlphaZTX ).
-   + 如果试图导入 `physics` 宏包，会警告并推荐 `physics2`. 
+   + 如果试图导入 `physics` 宏包, 会警告并推荐 `physics2`. 
 
 ## 2022-09-24, [v2.1.3]
 
 ### Changed
 
 1. 字体选项变化
-   + `default` (默认选项) 的行为变为采用 `xeCJK` 的默认配置. 亦即，全系为 fandol 字体, 用楷体作为衬线意大利体, 无衬线字体没有意大利体. 也就是说, 现在 `default` 和 `diy` 行为一致.
+   + `default` (默认选项) 的行为变为采用 `xeCJK` 的默认配置. 亦即, 全系为 fandol 字体, 用楷体作为衬线意大利体, 无衬线字体没有意大利体. 也就是说, 现在 `default` 和 `diy` 行为一致.
      + 所以, 如果什么选项都不传, 用户可以自行用 `\setCJK*font` 配置.
    + 原 `default` 选项变为 `fandol`, 亦即作者配置的版本, 用仿宋作为衬线意大利体.
    + 考虑到初次使用的用户体验, `template.tex` 的示例字体选项不再是 `notofandol`, 而是 `default`.
