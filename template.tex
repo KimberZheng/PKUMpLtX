@@ -43,26 +43,26 @@
 % 下面的 \date 的参数是为了自动输出正确版本号, 正式报告请替换为上面的两种 \date 之一
 % \date{\releasedate}
 \begin{abstract}
-  康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程。
-  本实验用 NaI (Tl) 闪烁谱仪, 首先利用$^{137}Cs$和$^{60}Co$的光电峰峰位标定了能量刻度，再测量各散射角的散射 \gamma 光子能谱，由光电峰峰位和光电峰面积得出散射 \gamma 光子能量 h\nu', 并计算出微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$.
-  将理论值与实验值进行对比，验证了实验的正确性。
+  康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程. 
+  本实验用 NaI (Tl) 闪烁谱仪, 首先利用$^{137}Cs$和$^{60}Co$的光电峰峰位标定了能量刻度, 再测量各散射角的散射 \gamma 光子能谱, 由光电峰峰位和光电峰面积得出散射 \gamma 光子能量 h\nu', 并计算出微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$.
+  将理论值与实验值进行对比, 验证了实验的正确性. 
   % \note{本文档为对 \href{https://github.com/CastleStar14654/PKUMpLtX}{\pkg*{PKUMpLtX}} 的使用示例, 灰色部分为额外针对 \LaTeX{} 模板使用的说明或是一些能提升输出效果的琐碎细节.
     % 也请注意查看源文档 \file{template.tex} 中的注释.}
 \end{abstract}
-\keywords{康普顿效应，散射截面}
+\keywords{康普顿效应, 散射截面}
 
 \maketitle
 
 \section{引言}
-康普顿的X射线散射实验证实了光子是具有能量 $E = \hbar \omega$和动量$p=\hbar k$的粒子。因此，在光子和电子等微观粒子相互作用的过程中，能量守恒和动量守恒依然成立。
+康普顿的X射线散射实验证实了光子是具有能量 $E = \hbar \omega$和动量$p=\hbar k$的粒子. 因此, 在光子和电子等微观粒子相互作用的过程中, 能量守恒和动量守恒依然成立. 
 
-我国物理学家吴有训先生在康普顿先生的指导下对康普顿效应在理论和实验上均进行了验证，这大大加快了大家对康普顿效应的认识。
+我国物理学家吴有训先生在康普顿先生的指导下对康普顿效应在理论和实验上均进行了验证, 这大大加快了大家对康普顿效应的认识. 
 
-本实验通过使用康普顿散射仪，对能量刻度进行了标定，并验证了康普顿散射的\gamma 光子能量能量和微分散射截面以及散射角的关系。
+本实验通过使用康普顿散射仪, 对能量刻度进行了标定, 并验证了康普顿散射的\gamma 光子能量能量和微分散射截面以及散射角的关系. 
 
 \section{理论}
-康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程。碰撞时，入射光子把部分能量转移给电子，使他脱离原子成为反冲电子。同时，散射光子的能量和运动方向发生变化。
-如\autoref{fig:lilun}所示，经过一系列的推导可以得出：
+康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程. 碰撞时, 入射光子把部分能量转移给电子, 使他脱离原子成为反冲电子. 同时, 散射光子的能量和运动方向发生变化. 
+如\autoref{fig:lilun}所示, 经过一系列的推导可以得出: 
 $$ 
 h\nu' = \frac{h\nu}{1 + \frac{h\nu}{m_0 c^2}(1 - \cos\theta)}
 $$
@@ -73,34 +73,33 @@ $$
   \label{fig:lilun}
 \end{figure}
   
-康普顿散射的微分界面满足克莱因-仁科公式：
+康普顿散射的微分界面满足克莱因-仁科公式: 
 $$ 
 \frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} = r_0^2 \left[ \frac{1}{1 + \alpha(1 - \cos\theta)} \right]^2 \left[ \frac{1 + \cos^2\theta}{2} \right] \left[ 1 + \frac{\alpha^2(1 - \cos\theta)^2}{(1 + \cos^2\theta)\left[ 1 + \alpha(1 - \cos\theta) \right]} \right]
 $$
-本实验所测得的微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$满足：
+本实验所测得的微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$满足: 
 $$
 \frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} \bigg/ \frac{\mathrm{d}\sigma(\theta_0)}{\mathrm{d}\Omega} = \frac{N_{\mathrm{p}}(\theta)}{R(\theta)\eta(\theta)} \bigg/ \frac{N_{\mathrm{p}}(\theta_0)}{R(\theta_0)\eta(\theta_0)}
 $$
-其中，$N_{\mathrm{p}}(\theta)$可以由实验测量得到，
-而$R(\theta)$和$\eta(\theta)$可以由教材\cite{jindaiwulishiyan}中给出的表格中的数值再经过三次样条插值得到，分别如\autoref{fig:R}和\autoref{fig:eta}所示。
-
+其中, $N_{\mathrm{p}}(\theta)$可以由实验测量得到, 
+而$R(\theta)$和$\eta(\theta)$可以由教材\cite{jindaiwulishiyan}中给出的表格中的数值再经过三次样条插值得到, 分别如\autoref{fig:Reta}所示. 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{fig/R.png}
-  \caption{$R(\theta)$}
-  \label{fig:R}
-\end{figure}
-
-\begin{figure}[htbp]
+  \begin{minipage}[t]{0.52\textwidth}
   \centering
-  \includegraphics[width=0.6\linewidth]{fig/yita.png}
-  \caption{$\eta(\theta)$}
-  \label{fig:eta}
+  \includegraphics[width=6cm]{fig/R.png}
+  \end{minipage}
+  \begin{minipage}[t]{0.52\textwidth}
+  \centering
+  \includegraphics[width=6cm]{fig/yita.png}
+  \end{minipage}
+  \caption{$R(\theta)和\eta(\theta)$}
+  \label{fig:Reta}
 \end{figure}
 
 \section{实验}
 \subsection{实验装置示意}
-实验装置如\autoref{fig:zhaungzhi}所示。
+实验装置如\autoref{fig:zhaungzhi}所示. 
 
 \begin{figure}[htbp]
   \centering
@@ -113,28 +112,32 @@ $$
 \subsection{实验步骤}
   \subsubsection{标定能量刻度}
     \begin{enumerate}
-      \item 打开${^{137}Cs}$源，将开关打在半开状态，取下散射棒. 调节探头高压$\text{HV=520V}$，预热10分钟. 调节放大$\text{GAIN ADJ} = 3.8$，使得$0.662\text{MeV}$光电峰落在480道左右. 测量其全能谱，通过寻峰定出全能峰对应的准确道数.
-      \item 关闭${^{137}Cs}$源，放上${^{60}Co}$，测量其全能谱，定出$1.17\text{MeV}$和$1.33\text{MeV}$两峰对应的准确道数.
-      \item 根据测得的三个峰的道址，利用最小二乘法做能量刻度。
+      \item 打开${^{137}Cs}$源, 将开关打在半开状态, 取下散射棒. 调节探头高压$\text{HV=520V}$, 预热10分钟. 调节放大$\text{GAIN ADJ} = 3.8$, 使得$0.662\text{MeV}$光电峰落在480道左右. 测量其全能谱, 通过寻峰定出全能峰对应的准确道数.
+      \item 关闭${^{137}Cs}$源, 放上${^{60}Co}$, 测量其全能谱, 定出$1.17\text{MeV}$和$1.33\text{MeV}$两峰对应的准确道数.
+      \item 根据测得的三个峰的道址, 利用最小二乘法做能量刻度. 
     \end{enumerate}
 
   \subsubsection{康普顿散射峰值和微分截面测量}
     \begin{enumerate}
-      \item 安装散射棒，完全打开${^{137}Cs}$源，测量微分散射截面和散射峰能量随散射角的变化. 散射
-      角分别取$\theta = 20^\circ,40^\circ ,60^\circ ,80^\circ ,100^\circ ,120^\circ $，对于每个散射角，利用操作
-      “寻峰”和“重点区计算”，找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
-      \item 取下散射棒，记录和有散射棒时相同道数区间的面积总计数，从而计算出净峰面积.
-      \item 计算散射$\gamma$光子能量和微分散射截面与散射角$\theta$的关系，画出相应关系曲线图，
-      并计算实验值和理论值的偏差．在计算过程中，探测器的$R(E), \eta(E)$由 Origin 三次样条插值得到．
+      \item 安装散射棒, 完全打开${^{137}Cs}$源, 测量微分散射截面和散射峰能量随散射角的变化. 散射
+      角分别取$\theta = 20^\circ,40^\circ ,60^\circ ,80^\circ ,100^\circ ,120^\circ $, 对于每个散射角, 利用操作
+       "寻峰" 和 "重点区计算" , 找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
+      \item 取下散射棒, 记录和有散射棒时相同道数区间的面积总计数, 从而计算出净峰面积.
+      \item 计算散射$\gamma$光子能量和微分散射截面与散射角$\theta$的关系, 画出相应关系曲线图, 
+      并计算实验值和理论值的偏差．在计算过程中, 探测器的$R(E), \eta(E)$由 Origin 三次样条插值得到．
     \end{enumerate}
 
 \section{结果及讨论}
 
   \subsection{实验结果}
 
-    测量${^{137}Cs}$的全谱，通过寻峰定出全能峰对应的道数为 468 . 接着测量${^{60}Co}$的全谱，定出$1.17\text{MeV}$和$1.33\text{MeV}$的对应的道数为$848$和$955$.
-    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot d + b $，拟合的相关系数为$r = 0.9978$，拟合参数为：
-    $$a = 1.36 \times 10^{-3}, \quad b = 2.261 \times 10^{-2}$$
+    测量${^{137}Cs}$的全谱, 通过寻峰定出全能峰对应的道数为 468 . 接着测量${^{60}Co}$的全谱, 定出$1.17\text{MeV}$和$1.33\text{MeV}$的对应的道数为$848$和$955$.
+    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot d + b $, 
+    利用最小二乘法可得: 
+
+	  \begin{equation}
+		  E(MeV)=2.261 \times 10^{-2}+1.36 \times 10^{-3} x\qquad r=0.9978
+	  \end{equation}
 
     \begin{figure}[htbp]
       \centering
@@ -145,9 +148,9 @@ $$
 
     \subsection{康普顿散射峰值和微分截面测量}
 
-    改变散射角分别对散射信号和本底信号进行测量， 得到的测量结果如\autoref{jiaodu}所示，它是散射信号减去本地信号的画图结果。
+    改变散射角分别对散射信号和本底信号进行测量,  得到的测量结果如\autoref{jiaodu}所示, 它是散射信号减去本地信号的画图结果. 
     
-    得到的结果如\autoref{}所示.
+    得到的结果如\autoref{fig:jiaodu}所示.
 
       \begin{figure}[htbp]
         \centering
@@ -156,10 +159,10 @@ $$
         \label{fig:jiaodu}
       \end{figure}
       散射峰的能量可以直接利用峰值道址代入此前得到的能量-道址拟合式中得到．
-      利用三次样条插值可以得到不同散射能对应的探测器的 $R(E), \eta(E)$ 的大小，
-      于是可以得到 $\dfrac{N_p(\theta)}{R(E)\eta(E)}$ 的值，取 $20^\circ$ 时的微分散射截面为基准,
-      可以得到不同角度处的相对微分散射截面．将数据处理，得到散射峰能量和相对微分散射截面的大小，并与理论值对比，
-      分别如\autoref{tab:energy_deviation}和\autoref{tab:scattering_cross_section}所示。
+      利用三次样条插值可以得到不同散射能对应的探测器的 $R(E), \eta(E)$ 的大小, 
+      于是可以得到 $\dfrac{N_p(\theta)}{R(E)\eta(E)}$ 的值, 取 $20^\circ$ 时的微分散射截面为基准,
+      可以得到不同角度处的相对微分散射截面．将数据处理, 得到散射峰能量和相对微分散射截面的大小, 并与理论值对比, 
+      分别如\autoref{tab:energy_deviation}和\autoref{tab:scattering_cross_section}所示. 
 
       \begin{table}[htbp]
         \centering
@@ -197,14 +200,14 @@ $$
         \label{tab:scattering_cross_section}
       \end{table}
 
-      将能量的理论值和实验值、相对截面的理论值和实验值分别画在一张图里，并且分别作三次内插，得到图像如\autoref{fig:liheshi}所示。
+      将能量的理论值和实验值、相对截面的理论值和实验值分别画在一张图里, 并且分别作三次内插, 得到图像如\autoref{fig:liheshi}所示. 
       \begin{figure}[htbp]
         \centering
-        \begin{minipage}[t]{0.48\textwidth}
+        \begin{minipage}[t]{0.52\textwidth}
         \centering
         \includegraphics[width=6cm]{fig/nengliang.png}
         \end{minipage}
-        \begin{minipage}[t]{0.48\textwidth}
+        \begin{minipage}[t]{0.52\textwidth}
         \centering
         \includegraphics[width=6cm]{fig/jiemian.png}
         \end{minipage}
@@ -212,22 +215,17 @@ $$
         \label{fig:liheshi}
       \end{figure}
 
-      根据图线和数据可知，实测能量相比于理论值普遍偏高，但是偏差较小；而相对截面相比于理论值普遍偏大，偏差较大.
+      根据图线和数据可知, 实测能量相比于理论值普遍偏高, 但是偏差较小；而相对截面相比于理论值普遍偏大, 偏差较大.
 
 
 \section{结论}
-  本实验借助气压扫描式 F-P 标准具, 
-  对汞灯 546.1 nm 谱线及其在磁场作用下的塞曼光谱进行观察与测量.
-  报告呈现了该谱线在无磁场、0.8 T 磁场 (4 A 励磁电流) 及 1.0 T 磁场 (5 A 励磁电流) 下的光谱图, 
-  同时得到了 1.0 T 磁场中 $\pi$ 线和 $\sigma$ 线的光谱. 
-  本研究确定了 1.0 T磁场下各子谱线相对于 546.1 nm 谱线的波数差及相对强度, 
-  并通过列表与理论值对比, 讨论了产生误差的原因.
-  此外, 本研究还对各子谱线波数差进行拟合计算, 得到电子荷质比实验值$1.65 \times 10^{11} C/kg$, 并将其和理论值相比较, 分析了误差产生的原因.
-
+	在本实验测量和计算了不同散射角度下的 $\gamma$ 光子能量和相对微分散射截面, 由此验证了康普顿散射效应及其理论公式的准确性．
+	实验结果显示, 散射光子的能量和微分散射截面随散射角度的变化趋势与理论预测基本一致，但存在一定的系统性偏差．
+	这可能是由于探测器的有限立体角、仪器精度有限等一系列原因. 
+	本实验加深了对康普顿散射效应的理解，未来的研究可以进一步改进实验装置，探索更精确的散射测量方法，并将康普顿散射应用于更多的科学和工程领域．
+	
 \begin{acknowledgments}
-  感谢洪浩老师和助教老师的耐心指导和帮助.
-  \par
-  感谢搭档王尉丞同学的协助.
+  感谢楼建玲老师的指导和帮助.
 \end{acknowledgments}
 
 % bibliography 的参数是你的 *.bib 文件去掉后缀名后的部分
@@ -236,6 +234,14 @@ $$
 \clearpage % 附录前另起一页
 \appendix % 附录开始
 \section{思考题}\label{app:exercise}
+	误差来源可能有: 
+	
+	1、标定能量时, 仅用了三个点, 虽然$r$接近1, 但是由于数据点太少, 可能造成能量刻度的不准确. 后续实验可采用更多的能量值进行标定. 
+	
+	2、除铝棒外, 仪器周围的物质（如墙壁等）中的电子也可能参与康普顿散射, 并且移去铝棒前后, $\gamma$光子的路径会发生变化, 导致本底噪声不能完全消除. $\gamma$光子被墙壁散射后会进入探测器, 而铝棒的存在会原本较为集中的光子流变得分散, 从而有更多的散射光子进入探测器（没有铝棒的时候, 光子流正面打在墙上, 然后近乎垂直于墙面地返回, 因此进入探测器的较少）, 造成探测到的散射截面变大. 这便是实验值比理论值偏高的原因之一. 后续实验可以在更空旷的地方进行, 或者用能够吸收多余$\gamma$光子的材料把实验装置罩起来. 
+	
+	3、探测器的有限立体角. 这实际上是将一个$\Delta\Omega$立体角范围内的散射截面进行了平均, 由于相对微分散射截面是凹曲线, 这会导致测量值偏大. 尤其是在明显的 "拐弯" 处, 即$\theta=60\degree,80\degree$处. 但是探测器的立体角也不能太小, 否则被探测到的信号很微弱, 信噪比低, 无法提取有效信息. 后续实验可以换用更高灵敏度的探测器, 增加放射源的强度, 同时减小探测器的截面积. 
 
+	
 
 \end{document}
