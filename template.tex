@@ -30,128 +30,152 @@
 
 \begin{document}
 
-\title{塞曼效应} % 切合报告内容, 简短明确, 可以不同于讲义
+\title{康普顿散射} % 切合报告内容, 简短明确, 可以不同于讲义
 \author{郑熔} % 这里 \emailphone 一定要紧跟在 \author 后方
 \emailphone{2300011359@stu.pku.edu.cn}{(86)19805861588}
 % 如果改用 \email 则仅需要邮箱参数
 \affiliation{北京大学物理学院\quad 学号: 2300011359}
 % % 可以使用 \zhdate 自动生成中文日期, 如
-\date{\zhdate{2025/10/15}}
+\date{\zhdate{2025/10/29}}
 % % 也可使用 babel 的 \localedate, 如
 % \date{\localedate{2020}{12}{1}}
 % % 两者均会输出 `2020 年 12 月 1 日'
 % 下面的 \date 的参数是为了自动输出正确版本号, 正式报告请替换为上面的两种 \date 之一
 % \date{\releasedate}
 \begin{abstract}
-  塞曼效应是指原子的谱线在外磁场中发生分裂的现象. 
-  本实验运用气压扫描式法布里 - 珀罗标准具 (F-P 标准具) , 
-  对汞灯 546.1 nm 谱线在无磁场、 4A 励磁电流激发的磁场以及 5A 励磁电流激发的磁场条件下的塞曼谱线进行了测量, 
-  并对所得谱线开展了相应分析.
-  本实验测量得到了各子谱线与 546.1 nm 谱线的波数差及相对强度,
-  将其与理论计算结果对比后,
-  对误差来源进行了简要分析.
-  此外, 实验还借助光谱数据计算出电子荷质比, 通过与标准值比对发现两者非常接近, 验证了相关理论的正确性.
+  康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程。
+  本实验用 NaI (Tl) 闪烁谱仪, 首先利用$^{137}Cs$和$^{60}Co$的光电峰峰位标定了能量刻度，再测量各散射角的散射 \gamma 光子能谱，由光电峰峰位和光电峰面积得出散射 \gamma 光子能量 h\nu', 并计算出微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$.
+  将理论值与实验值进行对比，验证了实验的正确性。
   % \note{本文档为对 \href{https://github.com/CastleStar14654/PKUMpLtX}{\pkg*{PKUMpLtX}} 的使用示例, 灰色部分为额外针对 \LaTeX{} 模板使用的说明或是一些能提升输出效果的琐碎细节.
     % 也请注意查看源文档 \file{template.tex} 中的注释.}
 \end{abstract}
-\keywords{塞曼效应, F-P 标准具}
+\keywords{康普顿效应，散射截面}
 
 \maketitle
 
 \section{引言}
-  1896 年, 荷兰物理学家塞曼 (Pieter Zeeman) 在实验中发现: 
-  当钠光源置于足够强的外磁场中时, 其谱线会分裂为若干条子谱线, 
-  这一现象后来被命名为  " 塞曼效应" . 塞曼效应分为正常塞曼效应和反常塞曼效应.
-  正常塞曼效应是指谱线分裂为三条, 
-  裂距一个洛伦兹单位 ($\tilde{L} = \frac{eB}{4\pi mc}$) , 可以用经典理论解释.
-  其余为反常塞曼效应, 需要用量子理论解释.
-  塞曼效应是继 "法拉第效应" 和 "克尔效应" 之后, 第三个用来说明磁场和电场对光产生影响的例证．
-  从塞曼效应的结果中人们可以得到有关能级的数据, 即由分裂后子谱线的个数可以知道能级的 J 值, 从子谱线裂距的大小可以知道 g 因子.
-  \par
-  本实验运用气压扫描式法布里 - 珀罗标准具 (F-P 标准具) , 
-  对汞灯 546.1 nm 谱线在无磁场、有磁场条件下的塞曼谱线进行了测量, 
-  并观察到了谱线的精细结构, 也对所得谱线开展了相应分析.
-  本实验测量得到了各子谱线与 546.1 nm 谱线的波数差及相对强度,
-  还计算出电子荷质比, 通过与标准值比对发现两者非常接近, 验证了相关理论的正确性, 从而让我们更深刻地了解塞曼效应.
+康普顿的X射线散射实验证实了光子是具有能量 $E = \hbar \omega$和动量$p=\hbar k$的粒子。因此，在光子和电子等微观粒子相互作用的过程中，能量守恒和动量守恒依然成立。
+
+我国物理学家吴有训先生在康普顿先生的指导下对康普顿效应在理论和实验上均进行了验证，这大大加快了大家对康普顿效应的认识。
+
+本实验通过使用康普顿散射仪，对能量刻度进行了标定，并验证了康普顿散射的\gamma 光子能量能量和微分散射截面以及散射角的关系。
 
 \section{理论}
-对于本实验, 汞灯 546.1nm 光谱线对应的跃迁中上、下能级的电子态和光谱项和是$6\mathrm{s}7\mathrm{s}\ ^3\mathrm{S}_1 \rightarrow 6\mathrm{s}6\mathrm{p}\ ^3\mathrm{P}_2$.
-根据相关概念, 
+康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程。碰撞时，入射光子把部分能量转移给电子，使他脱离原子成为反冲电子。同时，散射光子的能量和运动方向发生变化。
+如\autoref{fig:lilun}所示，经过一系列的推导可以得出：
 $$ 
-g = 1 + \frac{J(J + 1) - L(L + 1) + S(S + 1)}{2J(J + 1)} , \Delta E = Mg\frac{eh}{4\pi m}B , M = J, J - 1, \cdots, -J 
+h\nu' = \frac{h\nu}{1 + \frac{h\nu}{m_0 c^2}(1 - \cos\theta)}
 $$
-对于 $J \to J+1$ 跃迁:
-\begin{equation} \label{energy}
-\begin{aligned}
-&M_J \to M_J \pm 1, & I_\sigma &= \frac{1}{4}(J \pm M_J + 1)(J \pm M_J + 2); \\
-&M_J \to M_J, & I_\pi &= (J+1)^2 - M^2
-\end{aligned}
-\end{equation}
-洛伦兹单位  $\tilde{L} = \frac{eB}{4\pi mc} \approx 0.467B$
-
-由此得到理论该实验的塞曼效应的结果\autoref{fig:lilun}, 
-其中, 横轴表示各条子谱线相对于无磁场时谱线的位置, 单位为洛伦兹单位 $\tilde{L}$. 
-横轴上方的竖线表示 $\pi$ 成分, 横轴下方的竖线表示 $\sigma$ 成分, 线段的长度表示谱线的相对强度, 由\autoref{energy}计算得到. 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig/lilun.png}
+  \caption{康普顿散射实验示意图}
+  \label{fig:lilun}
+\end{figure}
+  
+康普顿散射的微分界面满足克莱因-仁科公式：
+$$ 
+\frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} = r_0^2 \left[ \frac{1}{1 + \alpha(1 - \cos\theta)} \right]^2 \left[ \frac{1 + \cos^2\theta}{2} \right] \left[ 1 + \frac{\alpha^2(1 - \cos\theta)^2}{(1 + \cos^2\theta)\left[ 1 + \alpha(1 - \cos\theta) \right]} \right]
+$$
+本实验所测得的微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$满足：
+$$
+\frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} \bigg/ \frac{\mathrm{d}\sigma(\theta_0)}{\mathrm{d}\Omega} = \frac{N_{\mathrm{p}}(\theta)}{R(\theta)\eta(\theta)} \bigg/ \frac{N_{\mathrm{p}}(\theta_0)}{R(\theta_0)\eta(\theta_0)}
+$$
+其中，$N_{\mathrm{p}}(\theta)$可以由实验测量得到，
+而$R(\theta)$和$\eta(\theta)$可以由教材\cite{jindaiwulishiyan}中给出的表格中的数值再经过三次样条插值得到，分别如\autoref{fig:R}和\autoref{fig:eta}所示。
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/lilun.jpg}
-  \caption{本实验塞曼效应结果示意图}
-  \label{fig:lilun}
+  \includegraphics[width=0.85\linewidth]{fig/R.png}
+  \caption{$R(\theta)$}
+  \label{fig:R}
 \end{figure}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{fig/yita.png}
+  \caption{$\eta(\theta)$}
+  \label{fig:eta}
+\end{figure}
 
 \section{实验}
 \subsection{实验装置示意}
+实验装置如\autoref{fig:zhaungzhi}所示。
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/shiyanzhuangzhi.png}
-  \caption{塞曼效应实验装置示意图}
+  \includegraphics[width=0.85\linewidth]{fig/zhuangzhi.png}
+  \caption{康普顿散射实验装置示意图}
   \label{fig:zhaungzhi}
 \end{figure}
 
 
 \subsection{实验步骤}
-  \begin{enumerate}
-    \item 开启所有仪器电源.
-    \item 打开汞灯, 确定汞灯位于磁场的几何位置中心. 移动装置使得支架对准汞灯出光方向. 加上透镜装置, 使用纸屏确认透镜发出的光为平行光. 锁上毛玻璃片, 移动支架使得在毛玻璃片上呈现清晰的的像. 
-    \item 粗调. 加装毛玻璃, 让眼睛分别朝三个方向移动观察, 若视线移向某一方向时, 
-    中心出现 "吐出圆环" 现象, 就通过压紧该方向的旋钮或放松相反方向的旋钮来减小该方向的 h 值；若出现 "吞入圆环" 现象, 则反之. 
-    反复进行这样的调节, 直至眼睛向任意方向移动时, 均不再出现上述  "吞吐现象" . 
-    \item 细调. 加上针孔光阑, 调整准直. 打开气泵, 用4档升压, 如果看到有多条条纹向某个方向移动, 则把这个方向的旋钮放松或者把
-相反方向的旋钮压紧 (以增大这个方向的 h) ．反复调节直到升压时条纹均不向特定方向移动为止. 
-    \item 测量光谱. 取下针孔光阑, 将光电倍增管套入 H 出射口并锁紧, 拔出光电倍增管一侧的开关, 可以从窗口 W 看到管中央有小灯亮起. 根据小灯和它反射光的位置调整准直. 
-并看到汞灯等倾干涉环圆心和针孔光阑重合. 关闭窗口 W . 调节励磁电流分别为 0 、4 A 、5 A, 调整信号源的起始电压和量程在合适的范围, 点击电脑软件中的开始实验, 记录光谱. 
-    \item 复位. 升压结束后仪器会自动停止, 此时需要点击 "复位" 按键, 并且拧松气泵的放气螺丝直至气压显示在90 mV左右后再拧紧螺丝. 
-    \item 实验中需要依次测量无磁场作用, 0.8 T磁场 (4 A 励磁电流) , 1 T 磁场 (5 A 励磁电流) 的汞灯 546.1 nm 的光谱图, 并测量在 1.0 T 磁场作
-用下, 汞灯$\pi$ 线和 $\sigma$ 线的光谱图．
-  \end{enumerate}
+  \subsubsection{标定能量刻度}
+    \begin{enumerate}
+      \item 打开${^{137}Cs}$源，将开关打在半开状态，取下散射棒. 调节探头高压$\text{HV=520V}$，预热10分钟. 调节放大$\text{GAIN ADJ} = 3.8$，使得$0.662\text{MeV}$光电峰落在480道左右. 测量其全能谱，通过寻峰定出全能峰对应的准确道数.
+      \item 关闭${^{137}Cs}$源，放上$\ce{^{60}Co}$，测量其全能谱，定出$1.17\text{MeV}$和$1.33\text{MeV}$两峰对应的准确道数.
+      \item 根据测得的三个峰的道址，利用最小二乘法做能量刻度。
+    \end{enumerate}
+
+  \subsubsection{康普顿散射峰值和微分截面测量}
+    \begin{enumerate}
+      \item 安装散射棒，完全打开${^{137}Cs}$源，测量微分散射截面和散射峰能量随散射角的变化. 散射
+      角分别取$\theta = 20^\circ,40^\circ ,60^\circ ,80^\circ ,100^\circ ,120^\circ $，对于每个散射角，利用操作
+      “寻峰”和“重点区计算”，找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
+      \item 取下散射棒，记录和有散射棒时相同道数区间的面积总计数，从而计算出净峰面积.
+      \item 计算散射$\gamma$光子能量和微分散射截面与散射角$\theta$的关系，画出相应关系曲线图，
+      并计算实验值和理论值的偏差．在计算过程中，探测器的$R(E), \eta(E)$由 Origin 三次样条插值得到．
+    \end{enumerate}
 
 \section{结果及讨论}
 
-\subsection{实验结果}
+  \subsection{实验结果}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\linewidth]{fig/1.png}
-  \caption{无磁场下汞灯的光谱}
-  \label{fig:000}
-\end{figure}
+    测量${^{137}Cs}$的全谱，通过寻峰定出全能峰对应的道数为 468 . 接着测量${^{60}Co}$的全谱，定出$1.17\text{MeV}$和$1.33\text{MeV}$的对应的道数为$848$和$955$.
+    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot d + b $，拟合的相关系数为$r = 0.9978$，拟合参数为：
+    $$a = 1.36 \times 10^{-3}, \quad b = 2.261 \times 10^{-2}$$
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\linewidth]{fig/5.png}
-  \caption{磁场为 0.8 T (I = 4 A) 下汞灯的光谱}
-  \label{fig:444}
-\end{figure}
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=0.85\linewidth]{fig/nihe.png}
+      \caption{能量-道址线性刻度}
+      \label{fig:nihe}
+    \end{figure}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.85\linewidth]{fig/2.png}
-  \caption{磁场为 1.0 T (I = 5 A) 下汞灯的光谱}
-  \label{fig:555}
-\end{figure}
+    \subsection{康普顿散射峰值和微分截面测量}
+
+    改变散射角分别对散射信号和本底信号进行测量， 得到的测量结果如\autoref{jiaodu}所示，它是散射信号减去本地信号的画图结果。
+    
+    得到的结果如\autoref{}所示.
+
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.85\linewidth]{fig/jiaodu.png}
+        \caption{不同角度处的散射能谱}
+        \label{fig:jiaodu}
+      \end{figure}
+
+      \begin{table}[htbp]
+        \centering
+        \caption{散射γ光子能量测量与理论对比数据} % 表格标题（可根据实际需求修改）
+        \begin{tabular}{ccccccc}
+            \toprule % 顶部粗线（需加载booktabs宏包）
+            散射角 $\theta$ ($^\circ$) & 峰位道址 & 能量实验值 (MeV) & $R(\theta)$ & $\eta(\theta)$ & 能量理论值 (MeV) & 能量偏差 (\%) \\
+            \midrule % 中间细线（需加载booktabs宏包）
+            20 & 447 & 0.63053 & 0.409 & 0.000674 & 0.613735 & 2.66 \\
+            40 & 361 & 0.51357 & 0.481 & 0.000729 & 0.507823 & 1.12 \\
+            60 & 292 & 0.41973 & 0.565 & 0.000794 & 0.401635 & 4.31 \\
+            80 & 232 & 0.33813 & 0.669 & 0.000872 & 0.319645 & 5.47 \\
+            100 & 191 & 0.28237 & 0.751 & 0.000940 & 0.262597 & 7.00 \\
+            120 & 160 & 0.24021 & 0.818 & 0.000996 & 0.224898 & 6.37 \\
+            \bottomrule % 底部粗线（需加载booktabs宏包）
+        \end{tabular}
+        \label{tab:gamma_scattering_energy} % 表格引用标签（方便文中引用）
+      \end{table}
+
+
+
 
   无磁场 (I = 0 A) 下汞灯的光谱如\autoref{fig:000}所示. 在一个光谱周期内, 仅存在一个 546.1 nm 的主峰. 其余的少量突起可能是精细结构的体现.
   \par
