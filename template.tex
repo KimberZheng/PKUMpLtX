@@ -68,7 +68,7 @@ h\nu' = \frac{h\nu}{1 + \frac{h\nu}{m_0 c^2}(1 - \cos\theta)}
 $$
 \begin{figure}
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/lilun.png}
+  \includegraphics[width=0.5\linewidth]{fig/lilun.png}
   \caption{康普顿散射实验示意图}
   \label{fig:lilun}
 \end{figure}
@@ -86,14 +86,14 @@ $$
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/R.png}
+  \includegraphics[width=0.6\linewidth]{fig/R.png}
   \caption{$R(\theta)$}
   \label{fig:R}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/yita.png}
+  \includegraphics[width=0.6\linewidth]{fig/yita.png}
   \caption{$\eta(\theta)$}
   \label{fig:eta}
 \end{figure}
@@ -104,7 +104,7 @@ $$
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.85\linewidth]{fig/zhuangzhi.png}
+  \includegraphics[width=0.6\linewidth]{fig/zhuangzhi.png}
   \caption{康普顿散射实验装置示意图}
   \label{fig:zhaungzhi}
 \end{figure}
@@ -159,28 +159,62 @@ $$
       利用三次样条插值可以得到不同散射能对应的探测器的 $R(E), \eta(E)$ 的大小，
       于是可以得到 $\dfrac{N_p(\theta)}{R(E)\eta(E)}$ 的值，取 $20^\circ$ 时的微分散射截面为基准,
       可以得到不同角度处的相对微分散射截面．将数据处理，得到散射峰能量和相对微分散射截面的大小，并与理论值对比，
-      分别如\autoref{tab:gamma_scattering_energy}和\autoref{}所示。
+      分别如\autoref{tab:energy_deviation}和\autoref{tab:scattering_cross_section}所示。
+
       \begin{table}[htbp]
         \centering
-        \caption{散射γ光子能量测量与理论对比数据} % 表格标题（可根据实际需求修改）
-        \begin{tabular}{ccccccc}
-            \toprule % 顶部粗线（需加载booktabs宏包）
-            散射角 $\theta$ ($^\circ$) & 峰位道址 & 能量实验值 (MeV) & $R(\theta)$ & $\eta(\theta)$ & 能量理论值 (MeV) & 能量偏差 (\%) \\
-            \midrule % 中间细线（需加载booktabs宏包）
-            20 & 447 & 0.63053 & 0.409 & 0.000674 & 0.613735 & 2.66 \\
-            40 & 361 & 0.51357 & 0.481 & 0.000729 & 0.507823 & 1.12 \\
-            60 & 292 & 0.41973 & 0.565 & 0.000794 & 0.401635 & 4.31 \\
-            80 & 232 & 0.33813 & 0.669 & 0.000872 & 0.319645 & 5.47 \\
-            100 & 191 & 0.28237 & 0.751 & 0.000940 & 0.262597 & 7.00 \\
-            120 & 160 & 0.24021 & 0.818 & 0.000996 & 0.224898 & 6.37 \\
-            \bottomrule % 底部粗线（需加载booktabs宏包）
+        \caption{散射γ光子能谱峰值能量测量与理论对比}
+        \begin{tabular}{ccccc}
+          \toprule
+          $\theta$ ($^\circ$) & 道址 & 能量/MeV & 能量理论值/MeV & 能量的偏差/\% \\
+          \midrule
+          20 & 447 & 0.63053 & 0.613735 & 2.66 \\
+          40 & 361 & 0.51357 & 0.507823 & 1.12 \\
+          60 & 292 & 0.41973 & 0.401635 & 4.31 \\
+          80 & 232 & 0.33813 & 0.319645 & 5.47 \\
+          100 & 191 & 0.28237 & 0.262597 & 7.00 \\
+          120 & 160 & 0.24021 & 0.224898 & 6.37 \\
+          \bottomrule
         \end{tabular}
-        \label{tab:gamma_scattering_energy} % 表格引用标签（方便文中引用）
+        \label{tab:energy_deviation}
       \end{table}
 
+      \begin{table}[htbp]
+        \centering
+        \caption{相对微分散射截面测量与理论对比}
+        \begin{tabular}{cccccccccc}
+          \toprule
+          $\theta$ ($^\circ$) & 散射峰面积 & 本底峰面积 & 净峰面积 & $R(\theta)$ & $\eta(\theta)$ & 相对散射截面 & 理论值 & 相对散射量的偏差 (\%) \\
+          \midrule
+          20 & 22055 & 1491 & 20564 & 0.409 & 0.000674 & 1.000 & 1.00000 & 0.00 \\
+          40 & 16902 & 652 & 16250 & 0.481 & 0.000729 & 0.621 & 0.59876 & 3.62 \\
+          60 & 13324 & 601 & 12723 & 0.565 & 0.000794 & 0.380 & 0.33950 & 10.70 \\
+          80 & 11783 & 201 & 11582 & 0.669 & 0.000872 & 0.266 & 0.22669 & 14.83 \\
+          100 & 11875 & 674 & 11201 & 0.751 & 0.00094 & 0.213 & 0.18801 & 11.61 \\
+          120 & 14283 & 1072 & 13211 & 0.818 & 0.000996 & 0.217 & 0.17936 & 17.48 \\
+          \bottomrule
+        \end{tabular}
+        \label{tab:scattering_cross_section}
+      \end{table}
+
+      将能量的理论值和实验值、相对截面的理论值和实验值分别画在一张图里，并且分别作三次内插，得到图像如\autoref{fig:liheshi}所示。
+      \begin{figure}[htbp]
+        \centering
+        \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=6cm]{fig/nengliang.png}
+        \end{minipage}
+        \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=6cm]{fig/jiemian.png}
+        \end{minipage}
+        \caption{散射峰能量和相对微分散射截面测量结果与理论比较}
+        \label{fig:liheshi}
+      \end{figure}
+
+      根据图线和数据可知，实测能量相比于理论值普遍偏高，但是偏差较小；而相对截面相比于理论值普遍偏大，偏差较大.
 
 
- 
 \section{结论}
   本实验借助气压扫描式 F-P 标准具, 
   对汞灯 546.1 nm 谱线及其在磁场作用下的塞曼光谱进行观察与测量.
