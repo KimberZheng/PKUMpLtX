@@ -85,15 +85,15 @@ $$
 而$R(\theta)$和$\eta(\theta)$可以由教材\cite{jindaiwulishiyan}中给出的表格中的数值再经过三次样条插值得到, 分别如\autoref{fig:Reta}所示. 
 \begin{figure}[htbp]
   \centering
-  \begin{minipage}[t]{0.52\textwidth}
+  \begin{minipage}[t]{0.6\textwidth}
   \centering
-  \includegraphics[width=6cm]{fig/R.png}
+  \includegraphics[width=8cm]{fig/R.png}
   \end{minipage}
-  \begin{minipage}[t]{0.52\textwidth}
+  \begin{minipage}[t]{0.6\textwidth}
   \centering
-  \includegraphics[width=6cm]{fig/yita.png}
+  \includegraphics[width=8cm]{fig/yita.png}
   \end{minipage}
-  \caption{$R(\theta)和\eta(\theta)$}
+  \caption{$R(\theta)$和$\eta(\theta)$}
   \label{fig:Reta}
 \end{figure}
 
@@ -121,7 +121,7 @@ $$
     \begin{enumerate}
       \item 安装散射棒, 完全打开${^{137}Cs}$源, 测量微分散射截面和散射峰能量随散射角的变化. 散射
       角分别取$\theta = 20^\circ,40^\circ ,60^\circ ,80^\circ ,100^\circ ,120^\circ $, 对于每个散射角, 利用操作
-       "寻峰" 和 "重点区计算" , 找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
+       “寻峰” 和 “重点区计算” , 找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
       \item 取下散射棒, 记录和有散射棒时相同道数区间的面积总计数, 从而计算出净峰面积.
       \item 计算散射$\gamma$光子能量和微分散射截面与散射角$\theta$的关系, 画出相应关系曲线图, 
       并计算实验值和理论值的偏差．在计算过程中, 探测器的$R(E), \eta(E)$由 Origin 三次样条插值得到．
@@ -132,7 +132,7 @@ $$
   \subsection{实验结果}
 
     测量${^{137}Cs}$的全谱, 通过寻峰定出全能峰对应的道数为 468 . 接着测量${^{60}Co}$的全谱, 定出$1.17\text{MeV}$和$1.33\text{MeV}$的对应的道数为$848$和$955$.
-    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot d + b $, 
+    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot x + b $, 
     利用最小二乘法可得: 
 
 	  \begin{equation}
@@ -148,7 +148,7 @@ $$
 
     \subsection{康普顿散射峰值和微分截面测量}
 
-    改变散射角分别对散射信号和本底信号进行测量,  得到的测量结果如\autoref{jiaodu}所示, 它是散射信号减去本地信号的画图结果. 
+    改变散射角分别对散射信号和本底信号进行测量,  得到的测量结果如\autoref{fig: jiaodu}所示, 它是散射信号减去本地信号的画图结果. 
     
     得到的结果如\autoref{fig:jiaodu}所示.
 
@@ -203,13 +203,13 @@ $$
       将能量的理论值和实验值、相对截面的理论值和实验值分别画在一张图里, 并且分别作三次内插, 得到图像如\autoref{fig:liheshi}所示. 
       \begin{figure}[htbp]
         \centering
-        \begin{minipage}[t]{0.52\textwidth}
+        \begin{minipage}[t]{0.6\textwidth}
         \centering
-        \includegraphics[width=6cm]{fig/nengliang.png}
+        \includegraphics[width=8cm]{fig/nengliang.png}
         \end{minipage}
-        \begin{minipage}[t]{0.52\textwidth}
+        \begin{minipage}[t]{0.6\textwidth}
         \centering
-        \includegraphics[width=6cm]{fig/jiemian.png}
+        \includegraphics[width=8cm]{fig/jiemian.png}
         \end{minipage}
         \caption{散射峰能量和相对微分散射截面测量结果与理论比较}
         \label{fig:liheshi}
@@ -240,7 +240,7 @@ $$
         \caption{仅考虑有限立体角影响, 实验值和理论值的区别}
         \begin{tabular}{ccccccc}
           \toprule
-           角度/$^circ$ & $能量_exp/keV$ & $能量_theo/keV$ & 能量偏差/\% & $相对散射截面_exp$ & $相对散射截面_theo$ & 相对散射截面偏差/\%\\
+           角度/$^circ$ & 能量$_{exp}$/keV & 能量$_{theo}$/keV & 能量偏差/\% & 相对散射截面$_{exp}$ & 相对散射截面$_{theo}$ & 相对散射截面偏差/\%\\
           \midrule
            20 & 613.0618 & 614.0271 & -0.15 & 1.0000 & 1.0000 & 0\\
            40 & 508.2682 & 508.0233 & 0.05 & 0.6023 & 0.6007 & 0.27\\
