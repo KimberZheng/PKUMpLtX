@@ -30,71 +30,81 @@
 
 \begin{document}
 
-\title{康普顿散射} % 切合报告内容, 简短明确, 可以不同于讲义
+\title{核磁共振} % 切合报告内容, 简短明确, 可以不同于讲义
 \author{郑熔} % 这里 \emailphone 一定要紧跟在 \author 后方
 \emailphone{2300011359@stu.pku.edu.cn}{(86)19805861588}
 % 如果改用 \email 则仅需要邮箱参数
 \affiliation{北京大学物理学院\quad 学号: 2300011359}
 % % 可以使用 \zhdate 自动生成中文日期, 如
-\date{\zhdate{2025/10/29}}
+\date{\zhdate{2025/11/12}}
 % % 也可使用 babel 的 \localedate, 如
 % \date{\localedate{2020}{12}{1}}
 % % 两者均会输出 `2020 年 12 月 1 日'
 % 下面的 \date 的参数是为了自动输出正确版本号, 正式报告请替换为上面的两种 \date 之一
 % \date{\releasedate}
 \begin{abstract}
-  康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程. 
-  本实验用 NaI (Tl) 闪烁谱仪, 首先利用$^{137}Cs$和$^{60}Co$的光电峰峰位标定了能量刻度, 再测量各散射角的散射 \gamma 光子能谱, 由光电峰峰位和光电峰面积得出散射 \gamma 光子能量 h\nu', 并计算出微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$.
-  将理论值与实验值进行对比, 验证了实验的正确性. 
-  % \note{本文档为对 \href{https://github.com/CastleStar14654/PKUMpLtX}{\pkg*{PKUMpLtX}} 的使用示例, 灰色部分为额外针对 \LaTeX{} 模板使用的说明或是一些能提升输出效果的琐碎细节.
-    % 也请注意查看源文档 \file{template.tex} 中的注释.}
+  核磁共振是具有非零自旋的原子核在外磁场作用下，
+  吸收特定频率电磁波发生能级跃迁的物理过程。
+  本实验从共振频率的基础调节操作入手，
+  首先观察了掺有三氯化铁的水样品的核磁共振基本现象，探究射频场频率、幅度、扫场幅度以及电路盒左右位置对共振信号的波形、幅度和位置分布的影响。
+  随后，利用共振条件以及水样品中质子的共振频率对永磁铁的磁场强度进行校准，并基于校准值测量聚四氟乙烯样品中氟原子核的 g 因子，
+  同时测定氟核的横向弛豫时间。
 \end{abstract}
-\keywords{康普顿效应, 散射截面}
+\keywords{核磁共振，g 因子，弛豫时间} % 关键词, 用逗号分隔
 
 \maketitle
-
 \section{引言}
-康普顿的X射线散射实验证实了光子是具有能量 $E = \hbar \omega$和动量$p=\hbar k$的粒子. 因此, 在光子和电子等微观粒子相互作用的过程中, 能量守恒和动量守恒依然成立. 
-
-我国物理学家吴有训先生在康普顿先生的指导下对康普顿效应在理论和实验上均进行了验证, 这大大加快了大家对康普顿效应的认识. 
-
-本实验通过使用康普顿散射仪, 对能量刻度进行了标定, 并验证了康普顿散射的\gamma 光子能量能量和微分散射截面以及散射角的关系. 
+Pauli于1924年研究元素光谱精细结构时首次提出核磁矩与核自旋概念。
+1939年，经I.I.Rabi改进的Otto Stern首创分子束实验，
+提出更精确的核磁矩测量方法。
+1946年，美国Harvard大学的Purcell、Pound与Stanford大学的Bloch、Hanson同时独立设计近代核磁共振技术。
+在核物理领域，通过测量各种核磁矩大小，可获取诸多核结构信息。
+本实验旨探究了核磁共振实验现象，并利用核磁共振校准磁场，测量氟核和\( g \)因子以及横向弛豫时间。
 
 \section{理论}
-康普顿效应是指入射光子与物质原子中的核外电子产生非弹性碰撞而被散射的过程. 碰撞时, 入射光子把部分能量转移给电子, 使他脱离原子成为反冲电子. 同时, 散射光子的能量和运动方向发生变化. 
-如\autoref{fig:lilun}所示, 经过一系列的推导可以得出: 
-$$ 
-h\nu' = \frac{h\nu}{1 + \frac{h\nu}{m_0 c^2}(1 - \cos\theta)}
-$$
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{fig/lilun.png}
-  \caption{康普顿散射实验示意图}
-  \label{fig:lilun}
-\end{figure}
-  
-康普顿散射的微分界面满足克莱因-仁科公式: 
-$$ 
-\frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} = r_0^2 \left[ \frac{1}{1 + \alpha(1 - \cos\theta)} \right]^2 \left[ \frac{1 + \cos^2\theta}{2} \right] \left[ 1 + \frac{\alpha^2(1 - \cos\theta)^2}{(1 + \cos^2\theta)\left[ 1 + \alpha(1 - \cos\theta) \right]} \right]
-$$
-本实验所测得的微分散射截面的相对值$\frac{d\sigma(\theta)}{d\Omega}/\frac{d\sigma(\theta_0)}{d\Omega}$满足: 
-$$
-\frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} \bigg/ \frac{\mathrm{d}\sigma(\theta_0)}{\mathrm{d}\Omega} = \frac{N_{\mathrm{p}}(\theta)}{R(\theta)\eta(\theta)} \bigg/ \frac{N_{\mathrm{p}}(\theta_0)}{R(\theta_0)\eta(\theta_0)}
-$$
-其中, $N_{\mathrm{p}}(\theta)$可以由实验测量得到, 
-而$R(\theta)$和$\eta(\theta)$可以由教材\cite{jindaiwulishiyan}中给出的表格中的数值再经过三次样条插值得到, 分别如\autoref{fig:Reta}所示. 
+根据共振时 \( h\nu = \Delta E \) 和\( \Delta E = \gamma \hbar B\)可以把共振条件写成
+\[
+\omega = \gamma B \quad \text{或} \quad \nu = \frac{\gamma}{2\pi} B 
+\]
+式中 \( \omega = 2\pi\nu \) 为射频场的圆频率.
+\( \gamma/2\pi \) 称为原子核的回旋频率,数值上等于磁场为1 T时的磁共振频率,
+单位为 MHz/T.若已知磁场 \( B \),测量共振频率可求出 \( \gamma/2\pi \) 的数值.反之,可利用\( \gamma/2\pi \) 为已知值来校准磁场。
+
+
+
+热平衡条件下之所以可以观测到核磁共振现象，是因为体系上下能级的粒子数分布遵循玻尔兹曼分布：
+\[
+\frac{N_{20}}{N_{10}} = \exp(-\Delta E/kT)
+\]
+其中 \( N_{20} \)、\( N_{10} \) 分别是上、下能级的粒子数。一般情形下，\( \Delta E \ll kT \)，近似有
+\[
+\frac{N_{20}}{N_{10}} \approx 1 - \frac{\Delta E}{kT} = 1 - \frac{\gamma \hbar B}{kT}
+\]
+由此可求出热平衡时下能级与上能级的粒子数之差为
+\[
+n_0 = N_{10} - N_{20} \approx \frac{\gamma \hbar B}{2kT}N \tag{6-1-4}
+\]
+其中 \( N \) 为粒子总数，对于氢核，在室温下当磁场为 \( 1 \, \text{T} \) 时
+\[
+n_0 \approx 0.000\ 003\ 4\ N
+\]
+这个粒子数差提供了观察核磁共振的可能性。
+磁场 \( B \) 越强，粒子差数越大，对观察核磁共振信号越有利；而温度越高，粒子差数越小，对观察核磁共振信号越不利。
+
+粒子的横向弛豫时间由以下公式决定：
+\[
+\frac{1}{T_2} = \frac{\Delta \omega}{2} 
+\]
+
+其中 \( \Delta \omega \) 为共振峰的半高宽。
+
+示波器产生的波形与扫场速度、横向弛豫时间有关\autoref{saochang}。扫场速度越快，尾波数量越多。外磁场越均匀，横向弛豫时间越长，尾波数量越多。以此可以判断外磁场均匀性。
+
 \begin{figure}[htbp]
   \centering
-  \begin{minipage}[t]{0.6\textwidth}
-  \centering
-  \includegraphics[width=8cm]{fig/R.png}
-  \end{minipage}
-  \begin{minipage}[t]{0.6\textwidth}
-  \centering
-  \includegraphics[width=8cm]{fig/yita.png}
-  \end{minipage}
-  \caption{$R(\theta)$和$\eta(\theta)$}
-  \label{fig:Reta}
+  \includegraphics[width=0.6\linewidth]{fig/saochang.png}
+  \caption{扫场速度不同时所观测得到的示波器信号波形\cite{jindaiwulishiyan}}
+  \label{fig:saochang}
 \end{figure}
 
 \section{实验}
@@ -103,167 +113,63 @@ $$
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{fig/zhuangzhi.png}
-  \caption{康普顿散射实验装置示意图}
+  \includegraphics[width=0.6\linewidth]{fig/shiyanzhaungzhi.png}
+  \caption{核磁共振实验装置示意图\cite{jindaiwulishiyan}}
   \label{fig:zhaungzhi}
 \end{figure}
 
 
 \subsection{实验步骤}
-  \subsubsection{标定能量刻度}
-    \begin{enumerate}
-      \item 打开${^{137}Cs}$源, 将开关打在半开状态, 取下散射棒. 调节探头高压$\text{HV=520V}$, 预热10分钟. 调节放大$\text{GAIN ADJ} = 3.8$, 使得$0.662\text{MeV}$光电峰落在480道左右. 测量其全能谱, 通过寻峰定出全能峰对应的准确道数.
-      \item 关闭${^{137}Cs}$源, 放上${^{60}Co}$, 测量其全能谱, 定出$1.17\text{MeV}$和$1.33\text{MeV}$两峰对应的准确道数.
-      \item 根据测得的三个峰的道址, 利用最小二乘法做能量刻度. 
-    \end{enumerate}
+  \subsubsection{观察掺有三氯化铁水样品的核磁共振现象，确定均匀场的位置}
+    将水样品（含三氯化铁）放置在核磁共振仪中，
+    将扫场线圈的幅度置于 100 格左右，将 “检波输出” 端和示波器连接，
+    将 “频率测试” 端和数字频率计连接，调节示波器内扫描为 5ms / 格。
+    连续调节边限振荡器的频率，并观察示波器波形，直到可以观察到共振吸收峰。
+    之后依次改变 \textbf {射频场频率}、\textbf {扫场幅度}、\textbf {电路盒左右位置} 和 \textbf {射频场幅度}，
+    观察对吸收信号的波形、幅度以及位置分布的影响。
 
-  \subsubsection{康普顿散射峰值和微分截面测量}
-    \begin{enumerate}
-      \item 安装散射棒, 完全打开${^{137}Cs}$源, 测量微分散射截面和散射峰能量随散射角的变化. 散射
-      角分别取$\theta = 20^\circ,40^\circ ,60^\circ ,80^\circ ,100^\circ ,120^\circ $, 对于每个散射角, 利用操作
-       “寻峰” 和 “重点区计算” , 找出并记录下光电峰的峰位、左右光标道址、重点区总面积. 
-      \item 取下散射棒, 记录和有散射棒时相同道数区间的面积总计数, 从而计算出净峰面积.
-      \item 计算散射$\gamma$光子能量和微分散射截面与散射角$\theta$的关系, 画出相应关系曲线图, 
-      并计算实验值和理论值的偏差．在计算过程中, 探测器的$R(E), \eta(E)$由 Origin 三次样条插值得到．
-    \end{enumerate}
+
+    调整电路盒的左右位置，同时观察示波器上的波形，当波形中尾波最多时，记录下此时电路盒的位置，这时候外磁场的均匀性最好。
+
+  \subsubsection{校准永磁铁的磁场}
+    将样品置于前面中所测量的磁场均匀性最好的位置，
+    找到共振吸收信号后尽可能减小扫场幅度，这样可以减小共振频率测量误差。
+    调整射频场频率使得示波器上出现多个共振峰，峰与峰之间间隔为 10ms 左右，记录下此时的射频场频率\( \nu_H \)。
+    根据共振条件和\( 25^\circ\text{C} \)水样品中质子的回旋频率\( \frac{\gamma}{2\pi} \)，
+    可以求出磁场的大小
+    \[
+    B_0 = \frac{\nu_H}{\gamma/2\pi}
+    \]
+
+    为了估计频率测量的精度，可以调节射频场频率使得示波器每两个共振峰合并为1个，即峰与峰之间间隔变为 20ms 左右，记录下满足该情形的频率分别为 \( \nu_H' \) 和 \( \nu_H'' \)（ \( \nu_H' < \nu_H'' \)）。
+    由此对频率测量的不确定度进行估计
+    \[
+    \Delta B = \frac{B'}{10} = \frac{(\nu_H' - \nu_H'')/20}{\gamma/2\pi}
+    \]
+    从而可以得到磁场的不确定度。
+
+    \subsection{测量氟核的 \( g \) 因子}
+
+      将聚四氟乙烯样品盒放在与2中相同的位置(均匀磁场处)，调节共振后利用
+      \[
+      g = \frac{\nu_F / B_0}{\mu_N / h}
+      \]
+      计算氟核的 \( g \) 因子，可以利用和2中相同的方法测量出频率的精度，并结合磁场的精度对结果的不确定度进行估计。
+
+    \subsection{测量氟核的横向弛豫时间}
+
+      将“扫场输出”信号作为示波器的 x 轴扫描信号，使用示波器的 \( x\text{-}y \) 模式，可以读出两个共振吸收峰的半宽取平均值，读出扫场幅度，求出二者的比值。
+      接着切换回 \( A\text{-}t \) 模式，用上面提过的方式测量出射频场频率之差\(\nu_F' - \nu_F''\)，就可以利用
+      \[
+      \frac{1}{T_2} = \frac{\Delta\omega}{2} = \pi(\nu_F' - \nu_F'')\frac{\Delta B}{2B'}
+      \]
+      计算出横向弛豫时间 \( T_2 \) 的大小。
+
+
 
 \section{结果及讨论}
 
-  \subsection{实验结果}
-
-    测量${^{137}Cs}$的全谱, 通过寻峰定出全能峰对应的道数为 468 . 接着测量${^{60}Co}$的全谱, 定出$1.17\text{MeV}$和$1.33\text{MeV}$的对应的道数为$848$和$955$.
-    对能量$E$和道数$d$进行最小二乘法拟合$E = a \cdot x + b $, 
-    利用最小二乘法可得: 
-
-	  \begin{equation}
-		  E(MeV)=2.261 \times 10^{-2}+1.36 \times 10^{-3} x\qquad r=0.9978
-	  \end{equation}
-
-    \begin{figure}[htbp]
-      \centering
-      \includegraphics[width=0.85\linewidth]{fig/nihe.png}
-      \caption{能量-道址线性刻度}
-      \label{fig:nihe}
-    \end{figure}
-
-    \subsection{康普顿散射峰值和微分截面测量}
-
-    改变散射角分别对散射信号和本底信号进行测量,  得到的测量结果如\autoref{fig:jiaodu}所示, 它是散射信号减去本地信号的画图结果. 
-    
-
-      \begin{figure}[htbp]
-        \centering
-        \includegraphics[width=0.85\linewidth]{fig/jiaodu.png}
-        \caption{不同角度处的散射能谱}
-        \label{fig:jiaodu}
-      \end{figure}
-      散射峰的能量可以直接利用峰值道址代入此前得到的能量-道址拟合式中得到．
-      利用三次样条插值可以得到不同散射能对应的探测器的 $R(E), \eta(E)$ 的大小, 
-      于是可以得到 $\dfrac{N_p(\theta)}{R(E)\eta(E)}$ 的值, 取 $20^\circ$ 时的微分散射截面为基准,
-      可以得到不同角度处的相对微分散射截面．将数据处理, 得到散射峰能量和相对微分散射截面的大小, 并与理论值对比, 
-      分别如\autoref{tab:energy_deviation}和\autoref{tab:scattering_cross_section}所示. 
-
-      \begin{table}[htbp]
-        \centering
-        \caption{散射γ光子能谱峰值能量测量与理论对比}
-        \begin{tabular}{ccccc}
-          \toprule
-          $\theta$ ($^\circ$) & 道址 & 能量/MeV & 能量理论值/MeV & 能量的偏差/\% \\
-          \midrule
-          20 & 447 & 0.63053 & 0.613735 & 2.66 \\
-          40 & 361 & 0.51357 & 0.507823 & 1.12 \\
-          60 & 292 & 0.41973 & 0.401635 & 4.31 \\
-          80 & 232 & 0.33813 & 0.319645 & 5.47 \\
-          100 & 191 & 0.28237 & 0.262597 & 7.00 \\
-          120 & 160 & 0.24021 & 0.224898 & 6.37 \\
-          \bottomrule
-        \end{tabular}
-        \label{tab:energy_deviation}
-      \end{table}
-
-      \begin{table}[htbp]
-        \centering
-        \caption{相对微分散射截面测量与理论对比}
-        \begin{tabular}{cccccccccc}
-          \toprule
-          $\theta$ ($^\circ$) & 散射峰面积 & 本底峰面积 & 净峰面积 & $R(\theta)$ & $\eta(\theta)$ & 相对散射截面 & 理论值 & 相对散射量的偏差 (\%) \\
-          \midrule
-          20 & 22055 & 1491 & 20564 & 0.409 & 0.000674 & 1.000 & 1.00000 & 0.00 \\
-          40 & 16902 & 652 & 16250 & 0.481 & 0.000729 & 0.621 & 0.59876 & 3.62 \\
-          60 & 13324 & 601 & 12723 & 0.565 & 0.000794 & 0.380 & 0.33950 & 10.70 \\
-          80 & 11783 & 201 & 11582 & 0.669 & 0.000872 & 0.266 & 0.22669 & 14.83 \\
-          100 & 11875 & 674 & 11201 & 0.751 & 0.00094 & 0.213 & 0.18801 & 11.61 \\
-          120 & 14283 & 1072 & 13211 & 0.818 & 0.000996 & 0.217 & 0.17936 & 17.48 \\
-          \bottomrule
-        \end{tabular}
-        \label{tab:scattering_cross_section}
-      \end{table}
-
-      将能量的理论值和实验值、相对截面的理论值和实验值分别画在一张图里, 并且分别作三次内插, 得到图像如\autoref{fig:liheshi}所示. 
-      \begin{figure}[htbp]
-        \centering
-        \begin{minipage}[t]{0.6\textwidth}
-        \centering
-        \includegraphics[width=8cm]{fig/nengliang.png}
-        \end{minipage}
-        \begin{minipage}[t]{0.6\textwidth}
-        \centering
-        \includegraphics[width=8cm]{fig/jiemian.png}
-        \end{minipage}
-        \caption{散射峰能量和相对微分散射截面测量结果与理论比较}
-        \label{fig:liheshi}
-      \end{figure}
-
-      根据图线和数据可知, 实测能量相比于理论值普遍偏高, 但是偏差较小；而相对截面相比于理论值普遍偏大, 偏差较大.
-
-    \subsection{分析探测器有限立体角对实验的最终影响}
-      理论上, 在特定角度$\theta$, 探测器探测得到的能量和散射截面分别满足公式: 
-      $$
-      h\nu' = \frac{h\nu}{1 + \frac{h\nu}{m_0 c^2}(1 - \cos\theta)}
-      $$
-      $$
-      \frac{\mathrm{d}\sigma(\theta)}{\mathrm{d}\Omega} = r_0^2 \left[ \frac{1}{1 + \alpha(1 - \cos\theta)} \right]^2 \left[ \frac{1 + \cos^2\theta}{2} \right] \left[ 1 + \frac{\alpha^2(1 - \cos\theta)^2}{(1 + \cos^2\theta)\left[ 1 + \alpha(1 - \cos\theta) \right]} \right]
-      $$
-      由于探测器口具有一定的面积, 因此探测器中测量得到的实际上是一定立体角内粒子的平均值. 能量和散射截面分别满足公式:
-      $$
-      \int_{\theta-\Delta\theta}^{\theta+\Delta\theta} \int_{\phi} \frac{d\sigma(\theta)}{d\Omega} \sin\theta \, d\theta d\phi    
-      $$
-      $$
-      \frac{\int\int E(\theta) \frac{d\sigma(\theta)}{d\Omega} \sin\theta \, d\theta d\phi}{\int\int \frac{d\sigma(\theta)}{d\Omega} \sin\theta \, d\theta d\phi}
-      $$
-      使用Python分别计算理论和实际探测得到能量和散射截面, 列表\autoref{tab:data_comparison}.
-      这里得到的理论值和教材\cite{jindaiwulishiyan}中给出的理论值有少许差别, 可能是因为教材有考虑了别的因素的影响. 
-      
-      \begin{table}[htbp]
-        \centering
-        \caption{仅考虑有限立体角影响, 实验值和理论值的区别}
-        \begin{tabular}{ccccccc}
-          \toprule
-           角度/$^circ$ & 能量$_{exp}$/keV & 能量$_{theo}$/keV & 能量偏差/\% & 相对散射截面$_{exp}$ & 相对散射截面$_{theo}$ & 相对散射截面偏差/\%\\
-          \midrule
-           20 & 613.0618 & 614.0271 & -0.15 & 1.0000 & 1.0000 & 0\\
-           40 & 508.2682 & 508.0233 & 0.05 & 0.6023 & 0.6007 & 0.27\\
-           60 & 402.2777 & 401.7598 & 0.12 & 0.3423 & 0.3411 & 0.35 \\
-           80 & 320.0687 & 319.7233 & 0.11 & 0.2280 & 0.2273 & 0.31\\
-           100 & 262.8583 & 262.6501 & 0.08 & 0.1890 & 0.1887 & 0.16\\
-           120 & 225.0835 & 224.9212 & 0.07 & 0.1802 & 0.1800 & 0.11\\
-          \bottomrule
-        \end{tabular}
-        \label{tab:data_comparison}
-      \end{table}
-      考虑有限立体角后, 大部分角度实验值均会大于理论值, 这和我们的实验结果相符合. 
-      可以发现, 有限立体角对最终结果的影响均很有限, 远小于实验实际做出来的实际与理论的偏差. 说明是其他因素主导了实验值与理论值的偏差. 
-      \subsection{除有限立体角之外, 误差的可能来源以及改进措施}
-
-      \begin{enumerate}
-        \item 标定能量时, 仅用了三个点, 数据点太少, 可能造成能量刻度的不准确. 后续实验可采用更多的能量值进行标定. 
-        \item 由于装置靠近墙面, 除铝棒外, 仪器周围的物质（如墙壁等）中的电子也可能参与康普顿散射, $\gamma$光子被墙壁散射后会进入探测器. 
-        并且移去铝棒前后, $\gamma$光子的路径会发生变化, 导致本底噪声不能完全消除. 铝棒的存在会原本较为集中的光子流变得分散, 
-        从而有更多的散射光子进入探测器, 造成探测到的散射截面变大. 这是实验值比理论值偏高的原因之一. 后续可以选取更加空旷的试验场地. 
-        \item $^{137} Cs$ 的能谱峰具有一定的展宽, 会对散射截面造成一定影响.
-        \item 探测器的接线处可能会出现接触不良的情况, 从而对实验结果产生一定的影响. 可以改进探测器的接线牢固程度, 使得它不要轻易脱落. 
-        \item 探测器对不同能量的粒子的探测效率会有差别, 导致不同角度处探测效率不同, 对结果有影响. 
-      \end{enumerate}
+  
 	
 
 
