@@ -90,14 +90,16 @@ $$
 $n_{\pm}$ 分别为左、右旋圆偏光的折射率. 若磁光常量 $Q$ 不为零, 入射的线偏光 (左、右旋圆偏光的叠加态) 反射后为主轴相对于入射光偏振面转过一个微小角度的椭偏光, 
 一般用复克尔转角 $\tilde{\theta}_K$ 来描述: 
 
-\[
-\tan \tilde{\theta}_K = \frac{k}{r_F} = \mathrm{i}\frac{r_+ - r_-}{r_+ + r_-}.
+$$
+\tan \tilde{\theta}_K = \frac{k}{r_F} = \mathrm{i}\frac{r_+ - r_-}{r_+ + r_-}
+$$
 
-\]
 由于到 $\tilde{\theta}_K$ 一般比较小: 
-\[
+
+$$
 \tilde{\theta}_K = \theta_K + \mathrm{i}\epsilon_K \approx \tan \tilde{\theta}_K = \frac{k}{r_F} = -\mathrm{i}\frac{n_+ - n_-}{1 - n_+n_-} \approx -\mathrm{i}\frac{nQ}{1 - n^2}.
-\]
+$$
+
 其中, $\theta_K$ 和 $\epsilon_K$ 分别为复克尔转角的实部和虚部. 
 也就是克尔转交和克尔椭率. 
 根据琼斯矩阵等理论, 入射线偏振光在样品表面反射并经过光弹调制器和检偏器后: 
@@ -106,8 +108,7 @@ $n_{\pm}$ 分别为左、右旋圆偏光的折射率. 若磁光常量 $Q$ 不为
 \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix} \cdot
 \begin{bmatrix} 1 & 0 \\ 0 & e^{\mathrm{i}\delta} \end{bmatrix} \cdot
 \begin{bmatrix} r_F & -k \\ k & r_F \end{bmatrix}
-\begin{bmatrix} E_0 \\ 0 \end{bmatrix},
-
+\begin{bmatrix} E_0 \\ 0 \end{bmatrix}
 \]
 其中 $r_F$ 表示反射光沿着入射光偏振方向 (即 $x$ 方向) 的偏振分量, $k$ 表示沿 $y$ 方向的偏振分量. 它们与复克尔转角之间的关系为: $\tan\tilde{\theta}_K = k/r_F$. 
 
@@ -117,13 +118,11 @@ $n_{\pm}$ 分别为左、右旋圆偏光的折射率. 若磁光常量 $Q$ 不为
 I(t) &\approx \frac{r_F^2 + k^2}{2} \left(1 + 2\theta_k \cos\delta - 2\epsilon_k \sin\delta\right) \\
 &= \frac{r_F^2 + k^2}{2} \left[1 + 2\theta_k J_0\left(\delta_0\right) - 4\epsilon_k J_1\left(\delta_0\right)\sin\omega t + 4\theta_k J_2\left(\delta_0\right)\cos2\omega t + \dots\right]
 \end{split}
-
 \]
 
 取 $\delta_0 = 2.405$ , 锁相放大器测量到的直流分量和一、二次谐波分量振幅与克尔转角、克尔椭率之间有如下关系: 
 \[
 \theta_K = B \frac{\sqrt{2}V_{2\omega}}{4V_0 J_2\left(\delta_0\right)}
-
 \]
 和
 \[
@@ -289,7 +288,6 @@ I(t) &\approx \frac{r_F^2 + k^2}{2} \left(1 + 2\theta_k \cos\delta - 2\epsilon_k
 \cos2\omega t & \sin2\omega t \\
 \sin2\omega t & -\cos2\omega t
 \end{bmatrix}
-.
 \]
 
 
