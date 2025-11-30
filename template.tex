@@ -30,105 +30,106 @@
 
 \begin{document}
 
-\title{核磁共振} % 切合报告内容, 简短明确, 可以不同于讲义
+\title{磁光克尔效应} % 切合报告内容, 简短明确, 可以不同于讲义
 \author{郑熔} % 这里 \emailphone 一定要紧跟在 \author 后方
 \emailphone{2300011359@stu.pku.edu.cn}{(86)19805861588}
 % 如果改用 \email 则仅需要邮箱参数
 \affiliation{北京大学物理学院\quad 学号: 2300011359}
 % % 可以使用 \zhdate 自动生成中文日期, 如
-\date{\zhdate{2025/11/12}}
+\date{\zhdate{2025/11/26}}
 % % 也可使用 babel 的 \localedate, 如
 % \date{\localedate{2020}{12}{1}}
 % % 两者均会输出 `2020 年 12 月 1 日'
 % 下面的 \date 的参数是为了自动输出正确版本号, 正式报告请替换为上面的两种 \date 之一
 % \date{\releasedate}
 \begin{abstract}
-  核磁共振是具有非零自旋的原子核在外磁场作用下, 
-  吸收特定频率电磁波发生能级跃迁的物理过程. 
-  本实验从共振频率的基础调节操作入手, 
-  首先观察了掺有三氯化铁的水样品的核磁共振基本现象, 探究射频场频率、幅度、扫场幅度以及电路盒左右位置对共振信号的波形、幅度和位置分布的影响. 
-  随后, 利用共振条件以及水样品中质子的共振频率对永磁铁的磁场强度进行校准, 并基于校准值测量聚四氟乙烯样品中氟原子核的 g 因子, 
-  同时测定氟核的横向弛豫时间. 
+  平面偏振光在光洁磁极表面发生反射时，偏振面会出现微小偏转，这个现象被称为磁光克尔效应。
+  它反映了物质磁化状态对其光学性质的影响。
+  本实验利用了光弹调制技术和锁相放大技术等一系列技术，测量了一个铁磁样品薄膜 \(Pt_{73}Co_{27}\) 的克尔磁滞回线，观察了磁光克尔效应．
+  并测量了样品的饱和克尔转角\(\theta_ks = 0.196^\circ\)与矫顽力\(B = 339.432 mT\)，并探究了起偏器转角对于磁滞回线的影响。
+  这加深了我们对磁光效应的理解，并在同时学习了解和椭偏检测相关的一些技术。
 \end{abstract}
-\keywords{核磁共振, g 因子, 弛豫时间} % 关键词, 用逗号分隔
+\keywords{磁光克尔效应，磁滞回线} % 关键词, 用逗号分隔
 
 \maketitle
 \section{引言}
-Pauli于1924年研究元素光谱精细结构时首次提出核磁矩与核自旋概念. 
-1939年, 经I.I.Rabi改进的Otto Stern首创分子束实验, 
-提出更精确的核磁矩测量方法. 
-1946年, 美国Harvard大学的Purcell、Pound与Stanford大学的Bloch、Hanson同时独立设计近代核磁共振技术. 
-在核物理领域, 通过测量各种核磁矩大小, 可获取诸多核结构信息. 
-本实验探究了核磁共振实验现象, 并利用核磁共振校准磁场、 测量氟核的\( g \)因子以及横向弛豫时间. 
+1877 年， 克尔（J.Kerr） 发现平面偏振光从光洁磁极表面反射时， 偏振面会发生微
+小的偏转， 这种现象被称为克尔效应. 克尔效应与法拉第效应、 塞曼效应同样， 都是由
+于物质的磁化状态改变了其光学性质所引起的现象， 被统称为磁光效应（magneto-optical
+effect） .
+
+
+磁光效应在磁畴观察、磁光存储、薄膜磁性原位表征、自旋电子学、
+太阳磁场测量、原子操纵和冷却、光隔离等方面都有重要应用．由于磁光克尔效应观察
+的是样品表面的反射光，不要求样品透明，其适用范围更宽．
+
+
+磁光克尔效应就被用于观察磁性样品的磁畴结构、磁光存储技术．
+近年来，克尔效应更被用于超薄磁性膜、磁化动态过程和自旋霍尔效应研究．
+
+
+本实验中，我们通过光弹调制技术和锁相放大技术，利用软件半自动化
+进行椭偏检测，测量了一个铁磁样品薄膜 \(Pt_{73}Co_{27}\) 的克尔磁滞回线，观察到了磁光克
+尔效应，测量了样品的饱和克尔转角和矫顽力，并探究了起偏器转角对于磁滞回线的影
+响．从而加深了我们对磁光效应的的理解，并在同时学习了解光弹调制、锁相放大等一系列检测技术．
+
 
 \section{理论}
-根据共振时 \( h\nu = \Delta E \) 和\( \Delta E = \gamma \hbar B\)可以把共振条件写成
-
-
-\[
-\omega = \gamma B \quad \text{或} \quad \nu = \frac{\gamma}{2\pi} B 
-\]
-
-
-式中 \( \omega = 2\pi\nu \) 为射频场的圆频率.
-\( \gamma/2\pi \) 称为原子核的回旋频率,数值上等于磁场为1 T时的磁共振频率,
-单位为 MHz/T.若已知磁场 \( B \),测量共振频率可求出 \( \gamma/2\pi \) 的数值.反之,可利用\( \gamma/2\pi \) 为已知值来校准磁场. 
-
-
-
-热平衡条件下之所以可以观测到核磁共振现象, 是因为体系上下能级的粒子数分布遵循玻尔兹曼分布: 
-
-
-\[
-\frac{N_{20}}{N_{10}} = \exp(-\Delta E/kT)
-\]
-
-
-其中 \( N_{20} \)、\( N_{10} \) 分别是上、下能级的粒子数. 一般情形下, \( \Delta E \ll kT \), 近似有
-
-
-\[
-\frac{N_{20}}{N_{10}} \approx 1 - \frac{\Delta E}{kT} = 1 - \frac{\gamma \hbar B}{kT}
-\]
-
-
-由此可求出热平衡时下能级与上能级的粒子数之差为
-
-
-\[
-n_0 = N_{10} - N_{20} \approx \frac{\gamma \hbar B}{2kT}N \tag{6-1-4}
-\]
-
-
-其中 \( N \) 为粒子总数, 对于氢核, 在室温下当磁场为 \( 1 \, \text{T} \) 时
-
-
-\[
-n_0 \approx 0.000\ 003\ 4\ N
-\]
-
-
-这个粒子数差提供了观察核磁共振的可能性. 
-磁场 \( B \) 越强, 粒子差数越大, 对观察核磁共振信号越有利；而温度越高, 粒子差数越小, 对观察核磁共振信号越不利. 
-
-粒子的横向弛豫时间由以下公式决定: 
-\[
-\frac{1}{T_2} = \frac{\Delta \omega}{2} 
-\]
-
-
-
-其中 \( \Delta \omega \) 为共振峰的半高宽. 
-
-
-示波器产生的波形与扫场速度、横向弛豫时间有关\autoref{fig:saochang}. 扫场速度越快, 尾波数量越多. 外磁场越均匀, 横向弛豫时间越长, 尾波数量越多. 以此可以判断外磁场均匀性. 
-
+本实验仅考虑极入射极克尔效应\autoref{fig:yuanli}，即磁场、入射光线均垂直与样品表面，系统具有旋转对称性。
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{fig/saochang.png}
-  \caption{扫场速度不同时所观测得到的示波器信号波形\cite{jindaiwulishiyan}}
-  \label{fig:saochang}
+  \includegraphics[width=0.4\linewidth]{fig/yuanli.png.png}
+  \caption{极入射极克尔效应示意图\cite{jindaiwulishiyan}}
+  \label{fig:yuanli}
 \end{figure}
+据菲涅尔公式，此时反射率：
+\[
+r_{\pm} = \frac{1 - n_{\pm}}{1 + n_{\pm}},
+
+\]
+$n_{\pm}$ 分别为左、右旋圆偏光的折射率。若磁光常量 $Q$ 不为零，入射的线偏光（左、右旋圆偏光的叠加态）反射后为主轴相对于入射光偏振面转过一个微小角度的椭偏光，
+一般用复克尔转角 $\tilde{\theta}_K$ 来描述：
+\[
+\tan \tilde{\theta}_K = \frac{k}{r_F} = \mathrm{i}\frac{r_+ - r_-}{r_+ + r_-}.
+
+\]
+由于到 $\tilde{\theta}_K$ 一般比较小：
+\[
+\tilde{\theta}_K = \theta_K + \mathrm{i}\epsilon_K \approx \tan \tilde{\theta}_K = \frac{k}{r_F} = -\mathrm{i}\frac{n_+ - n_-}{1 - n_+n_-} \approx -\mathrm{i}\frac{nQ}{1 - n^2}.
+\]
+其中，$\theta_K$ 和 $\epsilon_K$ 分别为复克尔转角的实部和虚部。
+也就是克尔转交和克尔椭率。
+根据琼斯矩阵等理论，入射线偏振光在样品表面反射并经过光弹调制器和检偏器后：
+\[
+\begin{bmatrix} E'_x \\ E'_y \end{bmatrix} = 
+\begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\ \frac{1}{2} & \frac{1}{2} \end{bmatrix} \cdot
+\begin{bmatrix} 1 & 0 \\ 0 & e^{\mathrm{i}\delta} \end{bmatrix} \cdot
+\begin{bmatrix} r_F & -k \\ k & r_F \end{bmatrix}
+\begin{bmatrix} E_0 \\ 0 \end{bmatrix},
+
+\]
+其中 $r_F$ 表示反射光沿着入射光偏振方向（即 $x$ 方向）的偏振分量，$k$ 表示沿 $y$ 方向的偏振分量。它们与复克尔转角之间的关系为：$\tan\tilde{\theta}_K = k/r_F$。
+
+作小量展开，光强为：
+\[
+\begin{split}
+I(t) &\approx \frac{r_F^2 + k^2}{2} \left(1 + 2\theta_k \cos\delta - 2\epsilon_k \sin\delta\right) \\
+&= \frac{r_F^2 + k^2}{2} \left[1 + 2\theta_k J_0\left(\delta_0\right) - 4\epsilon_k J_1\left(\delta_0\right)\sin\omega t + 4\theta_k J_2\left(\delta_0\right)\cos2\omega t + \dots\right]
+\end{split}
+
+\]
+
+取 $\delta_0 = 2.405$ ，锁相放大器测量到的直流分量和一、二次谐波分量振幅与克尔转角、克尔椭率之间有如下关系：
+\[
+\theta_K = B \frac{\sqrt{2}V_{2\omega}}{4V_0 J_2\left(\delta_0\right)}
+
+\]
+和
+\[
+\epsilon_K = -B \frac{\sqrt{2}V_{\omega}}{4V_0 J_1\left(\delta_0\right)},
+\]
+其中 $B$ 为标度系数，是整定器对交直流信号分别进行放大导致的。
+
 
 \section{实验}
 \subsection{实验装置示意}
@@ -136,213 +137,122 @@ n_0 \approx 0.000\ 003\ 4\ N
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.6\linewidth]{fig/shiyanzhaungzhi.png}
-  \caption{核磁共振实验装置示意图\cite{jindaiwulishiyan}}
+  \includegraphics[width=0.6\linewidth]{fig/zhaungzhi.png}
+  \caption{磁光克尔实验装置示意图\cite{jindaiwulishiyan}}
   \label{fig:zhaungzhi}
 \end{figure}
 
+本实验实验装置如\autoref{fig:zhaungzhi}所示，
+激光器产生的激光经过起偏器后成为线偏振光，
+近似垂直入射到样品表面；出射光经过光弹调制后进入光电探测器，
+锁相放大器接收来自光电探测器的信号并将 $V_0$、$V_\omega$ 和 $V_{2\omega}$ 传输给计算机。
+同时，计算机还会接收光弹调制控制器的调制频率 $\omega$ 和样品处的磁感应强度 $B$。
+
+
 
 \subsection{实验步骤}
-  \subsubsection{观察掺有三氯化铁水样品的核磁共振现象, 确定均匀场的位置}
-    将水样品 (含三氯化铁) 放置在核磁共振仪中, 
-    将扫场线圈的幅度置于 100 格左右, 将 “检波输出” 端和示波器连接, 
-    将 “频率测试” 端和数字频率计连接, 调节示波器内扫描为 5ms / 格. 
-    连续调节边限振荡器的频率, 并观察示波器波形, 直到可以观察到共振吸收峰. 
-    之后依次改变 \textbf {射频场频率}、\textbf {扫场幅度}、\textbf {电路盒左右位置} 和 \textbf {射频场幅度}, 
-    观察对吸收信号的波形、幅度以及位置分布的影响. 
+  \subsubsection{调节实验装置}
+    启动全部实验仪器。
+    调整样品位置，使得激光束垂直入射到样品表面，反射光能顺利进入光弹调制器、检偏器、光电探测器.
+    调整起偏器与光弹调制器平行，检偏器与起偏器的夹角 $45^\circ$。具体操作步骤如下：
+    \begin{enumerate}
+        \item 先调节检偏器，使光路达到几乎消光状态，即锁相放大器的输出信号降至最小；
+        \item 启动光弹调制器，调节其振动轴的角度，直至锁相放大器的输出信号降至最小；
+        \item 最后，将检偏器转动 $45^\circ$。
+    \end{enumerate}
 
 
-    调整电路盒的左右位置, 同时观察示波器上的波形, 当波形中尾波最多时, 记录下此时电路盒的位置, 这时候外磁场的均匀性最好. 
 
-  \subsubsection{校准永磁铁的磁场}
-    将样品置于前面中所测量的磁场均匀性最好的位置, 
-    找到共振吸收信号后尽可能减小扫场幅度, 这样可以减小共振频率测量误差. 
-    调整射频场频率使得示波器上出现多个共振峰, 峰与峰之间间隔为 10ms 左右, 记录下此时的射频场频率\( \nu_H \). 
-    根据共振条件和\( 25^\circ\text{C} \)水样品中质子的回旋频率\( \frac{\gamma}{2\pi} \), 
-    可以求出磁场的大小
-    \[
-    B_0 = \frac{\nu_H}{\gamma/2\pi}
-    \]
+  \subsubsection{克尔转角的标度}
+    将起偏器小角度分别旋转\(30',1^\circ,1^\circ30',2^\circ,2^\circ30'\), 记录下此时锁相放大器的直流分量\(V_0\)和二次谐波分量\(V_{2\omega}\),
+    对\(\frac{V_{2\omega}}{V_0}-\theta_k\)作线性拟合，得到标定系数\(\alpha\)
 
-    为了估计频率测量的精度, 可以调节射频场频率使得示波器每两个共振峰合并为1个, 即峰与峰之间间隔变为 20ms 左右, 记录下满足该情形的频率分别为 \( \nu_H' \) 和 \( \nu_H'' \) ( \( \nu_H' < \nu_H'' \)) . 
-    由此对频率测量的不确定度进行估计
-    \[
-    \Delta B = \frac{B'}{10} = \frac{(\nu_H' - \nu_H'')/20}{\gamma/2\pi}
-    \]
-    从而可以得到磁场的不确定度. 
 
-    \subsection{测量氟核的 \( g \) 因子}
+  \subsubsection{测量克尔磁滞回线}
 
-      将聚四氟乙烯样品盒放在与2中相同的位置(均匀磁场处), 调节共振后利用
-      \[
-      g = \frac{\nu_F / B_0}{\mu_N / h}
-      \]
-      计算氟核的 \( g \) 因子, 可以利用和2中相同的方法测量出频率的精度, 并结合磁场的精度对结果的不确定度进行估计. 
+    
+    使用测控计算机上的测控程序，设定初始磁场、末态磁场、步长和采样时间、选择回线模式，利用刚才标定的标度系数$\alpha$，系统将自动采集并显示数据曲线。
 
-    \subsection{测量氟核的横向弛豫时间}
 
-      将“扫场输出”信号作为示波器的 x 轴扫描信号, 使用示波器的 \( x\text{-}y \) 模式, 可以读出两个共振吸收峰的半宽取平均值, 读出扫场幅度, 求出二者的比值. 
-      接着切换回 \( A\text{-}t \) 模式, 用上面提过的方式测量出射频场频率之差\(\nu_F' - \nu_F''\), 就可以利用
-      \[
-      \frac{1}{T_2} = \frac{\Delta\omega}{2} = \pi(\nu_F' - \nu_F'')\frac{\Delta B}{2B'}
-      \]
-      计算出横向弛豫时间 \( T_2 \) 的大小. 
+  \subsubsection{探究克尔转角和起偏器角度的关系}
+
+    改变起偏器角度，分别相对起偏器的刻度为\(339^\circ45'\)转动\(1^\circ,2^\circ,-1^\circ,-2^\circ\)以及将近\(-4\circ\), 观察各个角度的磁滞回线，探究克尔转角和起偏器角度的关系。
 
 
 
 \section{结果及讨论}
+    按照上述实验步骤对仪器进行调节，得到起偏器的刻度为\(339^\circ45'\),光弹调制器的角度为\(280^\circ0'\)，检偏器的角度为\(43^\circ45'\).
 
-  \subsection{观察掺有三氯化铁水样品的核磁共振现象}
-    调节出共振信号后继续调节射频场的频率,  直到共振信号在示波器上呈现 10ms 的等间距分布. 在共振峰峰值最大, 尾波数量最多的地方, 磁场均匀并达到共振条件. 
-    记录下此时的射频场频率\( \nu_H = 21.10676 \, \text{MHz} \), 电路盒右边缘对应的位置\(x = 0.70cm\). 
+    克尔转角的标度系数为\(-6.84\times10^{-2}/^\circ\)。
 
-    \begin{enumerate}
-      \item 改变射频场频率: 当频率偏离共振频率时, 相邻共振峰两两相互接近, 峰值高度减小, 直到两个共振峰合并为一个, 此时相邻共振峰的距离为 20 ms , 再沿着刚才调节的方向调节, 共振峰消失. 
-      \item 改变扫场幅度: 当幅度偏离最高幅度时, 也会发生和调整射频场幅度类似的现象. 相邻共振峰两两相互接近, 合并为一个, 再调节, 共振峰消失. 
-      \item 改变电路盒左右位置: 当电路盒位置偏离均匀磁场位置时, 共振峰的高度降低, 尾波数量减少, 最终消失. 
-      \item 改变射频场幅度: 对示波器图像的影响较小. 
-    \end{enumerate}
-	
-    产生上述现象的原因如下, 示意图如\autoref{fig:yuanli}所示. 
+  \subsection{测量克尔磁滞回线}
+
+    采用起始磁场为-1000 mT, 末态磁场为1000 mT, 步长为200 mT, 对起偏器的刻度为\(339^\circ45'\)下的克尔磁滞回线进行测量，得到克尔转角和克尔椭率。但由于该图像的对称性较差，对于饱和克尔转角、矫顽力的读数、以及后续的分析不太友好，
+    我们选取相对起偏器的刻度为\(339^\circ45'\)转动\(-1^\circ\)的图像进行分析，其克尔转角和克尔椭率分别如\autoref{fig:keerzhuanjiao}和\autoref{fig:keertuolv}所示,该图对于实验中采集得到的数据点做了线性内插。
 
     \begin{figure}[htbp]
       \centering
-      \includegraphics[width=0.6\linewidth]{fig/yuanli.png}
-      \caption{扫场、静磁场与共振信号的关系\cite{jiaoda}}
-      \label{fig:yuanli}
+      \includegraphics[width=0.6\linewidth]{fig/new2.png}
+      \caption{克尔转角磁滞回线}
+      \label{fig:keerzhuanjiao}
     \end{figure}
 
-    外加总磁场为\( B = B_0 \pm B' \cos \omega t \), 其中前者为扫场, 后者为射频场. 
-
-    \begin{enumerate}
-
-      \item 若固定扫场幅度, 调节射频场频率, 即改变\autoref{fig:yuanli}中\(2\pi\nu/\gamma\)和总磁场 B 的交点, 
-      则会改变两个共振峰之间的距离, 从而使得示波器上相邻共振峰两两接近, 最终合并为一个. 
-
-      \item 若固定射频场频率, 调节扫场幅度, 即改变\autoref{fig:yuanli}中\( B_0 \pm B'  \cos \omega t \)的位置. 随着\(B_0\)的不断增大, 
-      \(2\pi\nu/\gamma\)和总磁场 B 的交点从无到有, 相邻两交点的逐渐分开, 再和另一个相邻的交点接近, 最终再合并. 
-
-      \item 改变电路盒位置, 相当于改变了\( B_0 \)的均匀性, 而不均匀的磁场会减小样品的横向弛豫时间, 导致尾波衰减更快, 从而影响了共振峰的高度和尾波数量. 经过观察, 磁场最均匀的地方在电路盒右边缘位置\(x = 0.70cm\)处. 
-
-      \item 改变射频场幅度, 对示波器图像的影响较小, 因为改变射频场幅度对峰间距影响不大, 而只会影响峰的高度. 
-    
-    \end{enumerate}
-
-
-  \subsection{校准永磁铁的磁场}
-    将样品置于磁场均匀性最好的位置\(x = 0.70cm\), 找到共振信号后尽可能减小扫场幅度, 这样可以减小共振频率测量误差. 
-    减小扫场幅度为15.2格, 调整射频场频率使得示波器上出现多个共振峰, 峰与峰之间间隔为 10ms 左右, 记录下此时的射频场频率\( \nu_H \). 
-    根据共振条件和\( 25^\circ\text{C} \)水样品中质子的回旋频率\( \frac{\gamma}{2\pi} = 42.5763888 \, \text{MHz/T} \), 
-
-    为了估计频率测量的精度, 可以调节射频场频率使得示波器每两个共振峰合并为1个, 即峰与峰之间间隔变为 20ms 左右, 
-    记录下满足该情形的频率分别为 \( \nu'\) 和 \( \nu''\). 由此得到\autoref{table:f}.
-
-    \begin{table}[htbp]
+    \begin{figure}[htbp]
       \centering
-      \begin{tabular}{ccc}
-          \hline
-          $\nu / \mathrm{MHz}$ & $\nu' / \mathrm{MHz}$ & $\nu'' / \mathrm{MHz}$ \\
-          \hline
-          21.10232 & 21.08453 & 21.11984 \\
-          \hline
-      \end{tabular}
-      \label{table:f}
-    \end{table} 
+      \includegraphics[width=0.6\linewidth]{fig/new3.png}
+      \caption{克尔椭率磁滞回线}
+      \label{fig:keertuolv}
 
-    $$\nu = \frac{\gamma}{2\pi} B \Rightarrow B = \frac{2\pi \nu}{\gamma} = 0.495739\ \mathrm{T}$$
+    \end{figure}
 
-    $$B' = \frac{(\nu' - \nu'')/2}{(\gamma/2\pi)} = 4.1467 \times 10^{-4}\ \mathrm{T}$$
+      观察克尔转角的磁滞回线并测量，可以发现：
+      \begin{enumerate}
+        \item 克尔转角具有较为明显的磁滞回线特征。
+        \item 饱和克尔转角为\(\theta_ks = 0.196^\circ\)
+        \item 矫顽力为\(B = 339.432 mT\)
+      \end{enumerate}
 
-    $$\Delta B = \frac{B'}{10} = 4.1467 \times 10^{-5}\ \mathrm{T}$$
+      观察克尔椭率的磁滞回线，发现：
+      \begin{enumerate}
+        \item  克尔椭率的磁滞回线特征并不明显。
+        \item 这是因为，克尔椭率主要由一次谐波分量决定，而实验装置中，光线容易被反射、折射，导致与我们希望测量的一次谐波分量产生干涉。从而导致结果较为混乱。
+      \end{enumerate}
 
-    对于永磁铁的磁场校准的最终结果为: 
+  \subsection{探究克尔转角和起偏器角度的关系}
+      根据实验步骤所示多次改变起偏器的角度，得到磁滞回线如\autoref{fig:keerzhuanjiao2}所示.
 
-    $$B_0 = 0.49574 \pm 0.00004 \ \mathrm{T}$$
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\linewidth]{fig/new1.png}
+        \caption{不同起偏器角度下的克尔转角磁滞回线}
+        \label{fig:keerzhuanjiao2}
+      \end{figure}
+      
+      分析上述图像，
+      可以发现各条曲线磁滞回线的形态无显著变化，相互之间近似为上下平移的关系。
+      读取每条磁滞回线的中心克尔转角与起偏器转角之间的关系，得到如\autoref{fig:guifan}所示的关系图.
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.6\linewidth]{fig/nihe.png}
+        \caption{起偏器转角与中心克尔转角的关系}
+        \label{fig:guifan}
+      \end{figure}
 
+      可以发现中心克尔转角与起偏器转角呈线性关系，斜率为0.816，与1非常接近，验证了测量的克尔转角与起偏器夹角之间为\(\theta_k = \theta_0 + \theta_{ki}\)的关系。
+      其中，\(\theta_k\)为测量的克尔转角，\(\theta_0\)为某一常数，\(\theta_{ki}\)为样品本身的克尔转角。
 
-  \subsection{测量氟核的 \( g \) 因子}
-    将聚四氟乙烯样品盒放在与2中相同的位置(均匀磁场处), 扫场幅度调节至25格. 利用上述相同方法, 测量得到频率如\autoref{table:g}. 
-    \begin{table}[htbp]
-      \centering
-      \begin{tabular}{ccc}
-          \hline
-          $\nu / \mathrm{MHz}$ & $\nu' / \mathrm{MHz}$ & $\nu'' / \mathrm{MHz}$ \\
-          \hline
-          19.84755 & 19.82411 & 19.87056 \\
-          \hline
-      \end{tabular}
-      \label{table:g}
-    \end{table} 
-
-    根据共振条件, 计算氟核的 \( g \) 因子: 
-    $$  
-      g = \frac{\nu_0 / B_0}{\mu_N / h} = 5.252308 
-    $$ 
-
-
-    其中氟核的磁矩与核自旋比值 \( \frac{\mu_N}{h} = 7.62259396\ \mathrm{MHz/T} \). 
-    结合频率和磁场的精度, 计算 \( g \) 因子的不确定度: 
-    
-
-    $$
-      \Delta \nu = \frac{\nu' - \nu''}{20} = 2.3225 \times 10^{-3}\ \mathrm{MHz} 
-    $$
-    $$  
-      \frac{\Delta g}{g} = \sqrt{\left( \frac{\Delta \nu}{\nu} \right)^2 + \left( \frac{\Delta B_0}{B_0} \right)^2} = 1.4 \times 10^{-4} 
-    $$
-    $$  
-    \Delta g = 0.0007 
-    $$
-    因此氟核的 \( g \) 因子为: 
-    $$
-      g = 5.2523 \pm 0.0007
-    $$
-
-  \subsection{测量氟核的横向弛豫时间}
-    将“扫场输出”信号作为示波器的 x 轴扫描信号, 使用示波器的 \( x\text{-}y \) 模式, 
-    可以读出两个共振吸收峰的半宽分别为0.182和0.170, 取其平均值为\(\Delta B = 0.176\), 
-    读出扫场变化范围为 \(2B' = 6.49\) , 求出二者的比值为\(k = \Delta B / 2B' = 0.0271186\). 
-
-    接着切换回 \( A\text{-}t \) 模式, 用上面提过的方式测量出频率如\autoref{table:t}. 
-    \begin{table}[htbp]
-      \centering
-      \begin{tabular}{ccc}
-          \hline
-          $\nu / \mathrm{MHz}$ & $\nu' / \mathrm{MHz}$ & $\nu'' / \mathrm{MHz}$ \\
-          \hline
-          19.82649 & 19.66635 & 19.99060 \\
-          \hline
-      \end{tabular}
-      \label{table:t}
-    \end{table} 
-
-    由此可以利用
-    $$
-      \frac{1}{T_2} = \frac{\Delta\omega}{2} = \pi(\nu' - \nu'')\frac{\Delta B}{2B'}
-    $$
-
-    计算得到$\frac{1}{T_2} = 0.027625 \mathrm{MHz}$, 从而得到横向弛豫时间为$ T_2 = 36.1995 \mathrm{ \mu s}$.
-
-  \subsection{观察纯水中的核磁共振现象}
-
-  由于实验室台面上似乎并没有看到纯水样品, 这里推测理论上纯水中的核磁共振现象:
-  相对掺有三氯化铁的水样品而言, 纯水样品的共振信号极弱, 在同等实验条件下难以观察到明显的共振峰, 
-  且背景噪声对信号的影响很大, 共振信号的波形和幅度会受到较大干扰. 
-
-  产生这种现象的原因见附录中思考题的回答.
-
-
+      
 
 \section{结论}
-  本实验从核磁共振现象的基本原理出发, 完成了对核磁共振现象的调节和观测. 
-  在实验过程中, 改变了射频场频率、扫场幅度、电路盒左右位置和射频场幅度等和核磁共振相关的参量, 
-  观察了这些改变对于共振信号的影响, 并分析了这些现象产生的原因. 
-  实验还利用了核磁共振完成了对永磁铁的磁场均匀性和磁场强度的校准, 得到本实验中磁场强度为
-  $B_0 = 0.49574 \pm 0.00004 \ \mathrm{T}$, 
-  随后测量了聚四氟乙烯样品中氟核的 g 因子,  得到结果为
-  $g = 5.2523 \pm 0.0007$,  最后对氟核的横向弛豫时间进行了测量, 得到结果为$ T_2 = 36.1995 \ \mu s$.
+
+  本次实验，我们利用样品\(Pt_{73}Co_{27}\) 合金薄膜，借助光弹调制器、锁相放大器等，通过椭偏检测技术实现了对微小克尔转角的测量，观测到了磁光克尔效应。
+  通过小范围下改变起偏器角度，确定标定系数为\(-6.84\times10^{-2}/^\circ\)。
+  通过测定样品的克尔磁滞回线，得到了样品对于$632.8\mathrm{nm}$波长的激光的饱和克尔转角$\theta_{ks}=0.196^\circ$，矫顽力为$B_c=339.432mT$。
+  证明了样品具有铁磁性。
+  同时研究了起偏器角度对于克尔转角的影响，验证了测量的克尔转角与起偏器夹角之间为线性关系。
+
 \begin{acknowledgments}
-  感谢季伟老师的指导和帮助.
+  感谢搭档吴浅溪和周路群老师的指导和帮助.
 \end{acknowledgments}
 
 % bibliography 的参数是你的 *.bib 文件去掉后缀名后的部分
@@ -351,10 +261,65 @@ n_0 \approx 0.000\ 003\ 4\ N
 \appendix
 
 \section{思考题}
-\subsection{对 “纯水” 样品与掺有三氯化铁的 “水” 样品中质子共振信号的主要差别作出解释}
-掺有三氯化铁的水样品中, 三氯化铁作为一种顺磁性物质,
-能够显著缩短质子的弛豫时间, 提高核磁共振信号的强度和清晰度.
-纯水样品中, 质子的弛豫时间较长, 导致信号较弱且难以分辨,
-因此在实验中更难观察到明显的共振峰.
+\subsection{我们的实验装置对克尔转角和克尔椭偏率的测量精度是否一样高？为什么？}
+  不一样高．克尔转角正比于二次谐波分量，克尔椭偏率正比于一次谐波分量．
+  光束在光弹调制晶体的两个表面和其他地方发生多次折射、反射，导致光
+  束干涉现象，影响一次谐波的测量，所以对克尔椭偏率的测量是不准确的．
 
+\subsection{如果用一个以角速度$\omega$旋转的$\frac{\lambda}{2}$波片代替光弹调制器，光电探测器的输出信号会如何变化，是否也能测出复克尔转角？}
+以角速度$\omega$转动的$\frac{\lambda}{2}$波片，其琼斯矩阵为：
+\[
+\begin{bmatrix}
+\cos\omega t & -\sin\omega t \\
+\sin\omega t & \cos\omega t
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+\cos\omega t & \sin\omega t \\
+-\sin\omega t & \cos\omega t
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos2\omega t & \sin2\omega t \\
+\sin2\omega t & -\cos2\omega t
+\end{bmatrix}
+.
+\]
+
+
+\[
+\begin{bmatrix}
+\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2}
+\end{bmatrix}
+\begin{bmatrix}
+\cos2\omega t & \sin2\omega t \\
+\sin2\omega t & -\cos2\omega t
+\end{bmatrix}
+\begin{bmatrix}
+r_F \\
+k
+\end{bmatrix}
+=
+\frac{1}{2}
+\begin{bmatrix}
+(\sin2\omega t + \cos2\omega t)r_F + (\sin2\omega t - \cos2\omega t)k \\
+(\sin2\omega t + \cos2\omega t)r_F + (\sin2\omega t - \cos2\omega t)k
+\end{bmatrix}
+\]
+
+光强为：
+\[
+I(t) = r_F^2 + k^2 + r_F^2 \sin4\omega t - k^2 \sin4\omega t + r_F k (sin 4 \omega t - 1).
+\]
+
+
+由此可见， 出射光的强度包含直流分量和四次谐波分量， 而四次谐波分量中耦合信息，
+因此无法实现对复克尔转角的实部和
+虚部的有效提取， 因此不能测出复克尔转角。
 \end{document}
