@@ -154,13 +154,67 @@ HSV（Hue-Saturation-Value）算法是机器人视觉感知核心技术，通过
 在示教器中其逻辑是“while (not A) and (not B)”在其代码库中的呈现是“while not A and not B”, 而 not 的优先级比 and 高，这会使得我们的机器人一直只能朝单一方向移动。
 修改代码后，这一动作被修正。
 
+\section{模块三：认知与多模态交互}
+
+\subsection{系统架构图}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{fig/structure.png}
+  \caption{系统架构图}
+  \label{fig:5}
+\end{figure}
+
+系统架构图如图\autoref{fig:5}所示。首先，我们需要生成一个含有北京大学相关信息的数据集，包括饮食、学科、景点、历史四个方向，共九百多条数据。
+其次，我们需要基于这些数据训练DeepSeek-R1-1.5B-Distill模型，使其能够回答与北京大学相关的问题。
+然后我们需要将训练好的模型部署到本地的Ollama服务器上。为了集成语音识别和语音合成模块，
+我们使用阿里云和火山引擎提供的API接口，将其部署到Fay中，以实现语音交互功能。
+除此之外，为了实现可视化的虚拟人形象，我们使用Unreal Engine引擎的UE5虚拟人插件，创建一个虚拟人形象，并将其与Fay进行集成。
+最后，我们实现了和虚拟人的多模态交互功能，用户可以通过语音与虚拟人进行交流，虚拟人可以通过语音和文本的方式回答用户的关于北京大学的各种问题，以实现北京大学导游的功能。
+
+
+\subsection{模型的微调}
+本实验采用 Llama Factory 框架对开源模型 DeepSeek-R1-1.5B-Distill 进行微调。
+为了使通用的预训练模型能够习得北京大学相关知识，并保持导游角色的特定语气，我们进行了参数设计与实验。
+
+
+由于模型规模（1.5B）与数据规模限制，
+本实验采用了LoRA轻量化微调技术。
+相比于全量微调，LoRA 通过在原始模型旁路注入可训练的低秩矩阵，
+既大幅降低了显存占用，又有效避免了大规模训练导致的遗忘。
+
+
+微调过程中的具体参数配置如表 \autoref{fig:parameters} 所示：
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/parameter.png}
+    \caption{模型微调核心参数配置表}
+    \label{fig:parameters}
+\end{figure}
+
+在此列举几个比较重要的参数：learning\_rate 设置为 5e-5，适合小样本微调；batch\_size 设置为 2，结合梯度累积（gradient\_accumulation\_steps=8）可以模拟大批次训练；
+训练的epochs 设置为 5，由于参数比较少，可以防止过拟合。
+最后训练得到的loss曲线成功下降，如图\autoref{fig:loss}所示。
+可以看到loss在前几个epoch下降较快，后续趋于平稳，表明模型已较好地拟合了数据集特征。
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/loss.png}
+    \caption{Loss 曲线}
+    \label{fig:loss}
+\end{figure}
+
+\subsection{我的分工}
+在这部分中，我负责了部分数据集的人工收集整理，并且辅助了一些模型部署的过程，例如如何具体部署Ollama、Fay、和UE5的资料查找，语音识别模块API的接入，
+并负责最后成果报告的展示。
 
 
 \section{综合思考与总结}
 控制实体机器人是现实世界中具体可控的，难点主要在于控制其物理平衡，设计其动作分解。
 而控制虚拟人则具有数据交互特性，难点主要在于配置环境，设计其训练数据集。
 
-开发过程中遇到最棘手的Bug:
+开发过程中遇到最棘手的2个Bug:
 \begin{enumerate}
     \item 在作业一中，直接让机器人向左一步过程较难控制机器人平衡。因为其重心不稳定，抬起的左腿没有经过中间步骤直接落地，很容易在左腿跨出的过程中就失去平衡跌倒。重心先不随着腿的位置而改变，而是始终保持重心在右腿，到左腿落地后再进行重心的转移。这样可以保持平衡。
     \item 在作业二中，机器人始终朝着一个方向移动，无法调整方向。经过排查，发现是因为示教器中循环模块的逻辑在代码库中呈现有误，在示教器中其逻辑是“while (not A) and (not B)”在其代码库中的呈现是“while not A and not B”, 而 not 的优先级比 and 高，这会使得我们的机器人一直只能朝单一方向移动。
