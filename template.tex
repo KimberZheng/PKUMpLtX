@@ -50,6 +50,16 @@
 \subsubsection{虚拟端}
 Aelos\_edu示教器，也可以使用VSCode或者MobaXterm SSH连接机器人的代码库。
 \subsection{第三次作业}
+
+\subsection{物理端}
+笔记本电脑.
+
+\subsection{虚拟端}
+虚拟人开发环境包括Ollama、Fay、Fay UE5等。
+还需要在在Llama Factory中进行模型微调。
+
+
+
 \section{模块一： 机器人的基础运动}
 \subsection{动作原理分析}
 机器人的运动是通过舵机的转动来实现的。每个舵机可以控制一个关节的角度，通过协调多个舵机的动作，可以实现机器人的行走、转向等动作。
@@ -192,8 +202,21 @@ HSV（Hue-Saturation-Value）算法是机器人视觉感知核心技术，通过
     \label{fig:parameters}
 \end{figure}
 
-在此列举几个比较重要的参数：learning\_rate 设置为 5e-5，适合小样本微调；batch\_size 设置为 2，结合梯度累积（gradient\_accumulation\_steps=8）可以模拟大批次训练；
-训练的epochs 设置为 5，由于参数比较少，可以防止过拟合。
+在此列举几个比较重要的参数：
+
+
+\begin{enumerate}
+    \item 模型选择 DeepSeek-R1-1.5B-Distill，体积适中，适合小样本微调；
+    \item learning\_rate 设置为 2e-5，适合小样本微调；我们一开始尝试了5e-5，发现loss下降非常地陡峭波动，改为2e-5后，loss曲线下降较快、较为平稳；
+    \item 采用LoRA微调技术，rank 设置为 32，可以在保证模型性能的同时，降低显存占用. 一开始我们尝试rank=8，但发现训练效果不好. 更高地rank可以提升模型的表达能力；
+    \item LoRA的dropout 设置为 0.05，可以丢弃部分神经元，防止过拟合；
+    \item batch\_size 设置为 2，结合梯度累积（gradient\_accumulation\_steps=8）可以模拟大批次训练；
+    \item 训练的epochs 设置为 3，由于参数比较少，可以防止过拟合。
+    \item 采用余弦退火学习率调度（cosine\_annealing）策略，可以在训练后期降低学习率，提升模型性能。
+    \item warmup\_steps 设置为 10，一开始学习率较低，训练初期逐步增加学习率，防止梯度爆炸。
+\end{enumerate}
+
+
 最后训练得到的loss曲线成功下降，如图\autoref{fig:loss}所示。
 可以看到loss在前几个epoch下降较快，后续趋于平稳，表明模型已较好地拟合了数据集特征。
 
@@ -205,9 +228,29 @@ HSV（Hue-Saturation-Value）算法是机器人视觉感知核心技术，通过
     \label{fig:loss}
 \end{figure}
 
+
+微调后，导出模型并部署到本地 Ollama。和他对话时，可以看到模型已经掌握了北京大学的相关知识，并且能够以导游的语气进行回答，如图\autoref{fig:chat}所示。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/chat.png}
+    \caption{微调后模型的对话示例}
+    \label{fig:chat}
+\end{figure}
+
+最后，我们将微调后的模型集成到Fay中，实现了语音交互功能。
+用户可以通过语音和文字与虚拟人进行交流，虚拟人可以通过语音和文本的方式回答用户的关于北京大学的各种问题，
+以实现北京大学导游的功能。
+
+具体结果见小组的报告视频。
+
+
+
+
 \subsection{我的分工}
-在这部分中，我负责了部分数据集的人工收集整理，并且辅助了一些模型部署的过程，例如如何具体部署Ollama、Fay、和UE5的资料查找，语音识别模块API的接入，
-并负责最后成果报告的展示。
+在这部分中，我负责了部分数据集的人工收集整理，并且辅助了一些模型部署的过程，
+例如如何具体部署Ollama、Fay和UE5的资料查找，语音识别模块API的接入，
+并负责最后成果的展示和报告。
 
 
 \section{综合思考与总结}
@@ -228,7 +271,7 @@ HSV（Hue-Saturation-Value）算法是机器人视觉感知核心技术，通过
 
 
 这门课程是让零基础同学简单了解具身智能的一门比较好的入门课程。
-对课程的建议：老师在讲解知识的时候可以不要讲得太过泛化，可以更细致更实用一些；课程设置可以再引人入胜一些。
+对课程的建议：老师在讲解知识的时候可以不要讲得太过泛化，可以更细致更实用一些，例如具体公式的推导、具体模型内部的架构等等；课程设置可以再引人入胜一些。
 
 
 \end{document}
